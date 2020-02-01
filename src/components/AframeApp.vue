@@ -6,22 +6,16 @@
       <img id="ground_img" src="@/assets/ground.jpg">
     </a-assets>
 
+    <!-- Ghost Component -->
     <Ghost img_path="#ghost_woman" :cordinate="cordinate" :size="size" isDisplay="true" />
-
-    <!-- Will be component in the future -->
-    <a-entity
-      v-for="(item, index) in ground_map"
-      :key="index"
-      geometry="primitive: plane; width: 3; height: 1;"
-      material="src: #ground_img"
-      rotation="-90 0 0"
-      :position="setGroundPosition(index)"
-    ></a-entity>
+    <!-- Map Ground Component -->
+    <Ground v-for="i in map_length" :key="i" :index="i"  img_path="#ground_img" />
   </a-scene>
 </template>
 
 <script>
-import Ghost from './Ghost.vue'
+import Ghost from "./Ghost.vue"
+import Ground from "./Ground.vue"
 
 export default {
   name: 'AframeApp',
@@ -37,20 +31,12 @@ export default {
         width: 2,
         height: 3
       },
-      // map information
-      ground_map: ["gr", "gr", "gr", "gr", "gr", "gr", "gr", "gr", "gr", "gr", "gr"],
-      z_move: 1,
-    }
-  },
-  methods: {
-    // Set Ground Position
-    setGroundPosition(index) {
-      const z_position = index > 0 ? index * this.z_move * -1 : index;
-      return { x: 0, y: 0, z: z_position }
+      map_length: 10,
     }
   },
   components: {
     Ghost,
+    Ground
   }
 }
 </script>
