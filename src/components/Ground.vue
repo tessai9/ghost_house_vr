@@ -13,12 +13,15 @@ export default {
   props: ["img_path", "index"],
   data() {
     return {
+      // space between ground images
       image_space: 1,
+      // geometry information
       geometry: {
         primitive: "plane",
         width: 3,
         height: 1,
       },
+      // material information
       material: {
         src: this.img_path
       }

@@ -31,7 +31,7 @@ export default {
         width: 2,
         height: 3
       },
-      map_length: 10,
+      map_length: 20,
     }
   },
   components: {

@@ -1,4 +1,4 @@
-<template>
+<template lang="html">
   <a-entity
     v-if="isDisplay"
     :geometry="geometry"
@@ -14,11 +14,13 @@ export default {
   props: ['img_path', 'cordinate', 'size', 'isDisplay'],
   data(){
     return {
+      // geometry information
       geometry: {
         primitive: "plane",
         width: this.size.width,
         height: this.size.height,
       },
+      // material information
       material: {
         src: this.img_path
       }
