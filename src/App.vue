@@ -1,16 +1,17 @@
 <template>
   <div id="app">
-    <AframeApp />
+    <TmpWorld />
   </div>
 </template>
 
 <script>
-import AframeApp from './components/AframeApp.vue'
+// import AframeApp from './components/AframeApp.vue'
+import TmpWorld from './components/TmpWorld.vue'
 
 export default {
   name: 'app',
   components: {
-    AframeApp
+    TmpWorld
   }
 }
 </script>
