@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import App from './App.vue'
+import App from '@/App.vue'
 import 'aframe'
 
 Vue.use(Vuex)

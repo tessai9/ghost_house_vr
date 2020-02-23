@@ -3,18 +3,25 @@
     <a-assets>
       <img id="ghost_woman" src="@/assets/ghost_woman.png" />
       <img id="ground_img" src="@/assets/floor.png" />
+      <img id="wall_img" src="@/assets/wall.jpg" />
     </a-assets>
 
     <!-- Ghost Component -->
     <Ghost img_path="#ghost_woman" :cordinate="cordinate" :size="size" isDisplay="true" />
     <!-- Map Ground Component -->
-    <Ground v-for="i in map_length" :key="i" :index="i" img_path="#ground_img" />
+    <StraightRoad
+      v-for="i in map_length"
+      :key="i"
+      :index="i"
+      ground_img_path="#ground_img"
+      wall_img_path="#wall_img"
+    />
   </a-scene>
 </template>
 
 <script>
 import Ghost from "@/components/Ghost.vue"
-import Ground from "@/components/Ground.vue"
+import StraightRoad from "@/components/StraightRoad.vue"
 
 export default {
   name: "AframeApp",
@@ -35,7 +42,7 @@ export default {
   },
   components: {
     Ghost,
-    Ground
+    StraightRoad,
   }
 }
 </script>

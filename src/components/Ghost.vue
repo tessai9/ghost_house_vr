@@ -10,7 +10,29 @@
 <script>
 export default {
   name: 'Ghost',
-  props: ['img_path', 'cordinate', 'size', 'isDisplay'],
+  // props: ['img_path', 'cordinate', 'size', 'isDisplay'],
+  props: {
+    img_path: {
+      type: String,
+      required: true
+    },
+    cordinate: {
+      type: Object,
+      default: function() {
+        return { x: 0, y: 0, z: 0 }
+      }
+    },
+    size: {
+      type: Object,
+      default: function() {
+        return { width: 1, height: 1 }
+      }
+    },
+    isDisplay: {
+      type: Boolean,
+      default: true
+    }
+  },
   data(){
     return {
       // geometry information
