@@ -4,6 +4,7 @@
       <img id="ghost_woman" src="@/assets/ghost_woman.png" />
       <img id="ground_img" src="@/assets/floor.png" />
       <img id="wall_img" src="@/assets/wall.jpg" />
+      <img id="ceiling_img" src="@/assets/ceiling.jpg" />
     </a-assets>
 
     <!-- Ghost Component -->
@@ -13,6 +14,7 @@
       v-for="i in map_length"
       :key="i"
       :index="i"
+      ceiling_img_path="#ceiling_img"
       ground_img_path="#ground_img"
       wall_img_path="#wall_img"
     />
