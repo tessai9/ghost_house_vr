@@ -8,7 +8,7 @@
     </a-assets>
 
     <!-- Ghost Component -->
-    <Ghost img_path="#ghost_woman" :cordinate="cordinate" :size="size" isDisplay="true" />
+    <Ghost img_path="#ghost_woman" :cordinate="cordinate" :size="size" :isDisplay=true />
     <!-- Map Ground Component -->
     <StraightRoad
       v-for="i in map_length"

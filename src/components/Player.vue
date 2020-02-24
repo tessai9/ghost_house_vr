@@ -2,7 +2,6 @@
     <a-entity 
         id="rig" 
         :position="cameraPosition"
-        @mouseup="onClick"
     >
         <a-camera
             id="camera"
@@ -13,38 +12,13 @@
                 position="0 0 -1"
                 geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.011"
                 material="color: wihte; shader: flat"
-                cursor-listener>
+                >
             </a-entity>
         </a-camera>
     </a-entity>
 </template>
 
 <script>
-    import aframe from "aframe"
-
-    // cameraの位置情報を逐次取得
-    aframe.registerComponent('rotation-reader', {
-        tick: function () {
-            // `this.el` is the element.
-            // `object3D` is the three.js object.
-            // `rotation` is a three.js Euler using radians. `quaternion` also available.
-            //console.log(this.el.object3D.rotation);
-            // `position` is a three.js Vector3.
-            //console.log(this.el.object3D.position);
-        }
-    });
-    // クリックでカーソルの色を変更(aframeのentityにイベント付与)
-    aframe.registerComponent('cursor-listener', {
-        init: function () {
-               /* var lastIndex = -1;
-                var COLORS = ['red', 'green', 'blue'];
-                this.el.addEventListener('mouseup', function (evt) {
-                    lastIndex = (lastIndex + 1) % COLORS.length;
-                    this.setAttribute('material', 'color', COLORS[lastIndex]);
-                    console.log('I was clicked at: ', evt.detail.intersection.point);
-            });*/
-        }
-    });
     export default {
         name: 'Player',
         props: {
