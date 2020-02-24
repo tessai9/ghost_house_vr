@@ -18,12 +18,16 @@
       ground_img_path="#ground_img"
       wall_img_path="#wall_img"
     />
+
+    <!-- Player Component -->
+    <Player />
   </a-scene>
 </template>
 
 <script>
 import Ghost from "@/components/Ghost.vue"
 import StraightRoad from "@/components/StraightRoad.vue"
+import Player from '@/components//Player.vue'
 
 export default {
   name: "AframeApp",
@@ -45,6 +49,7 @@ export default {
   components: {
     Ghost,
     StraightRoad,
+    Player
   }
 }
 </script>
