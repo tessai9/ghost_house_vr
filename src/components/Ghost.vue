@@ -4,7 +4,7 @@
     :geometry="geometry"
     :position="position"
     :material="material"
-  />
+  ></a-entity>
 </template>
 
 <script>
