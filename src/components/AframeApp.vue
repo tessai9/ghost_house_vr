@@ -15,7 +15,7 @@
       :size="ghost.size"
       :position="ghost.position"
       :event_area="ghost.event_area"
-      isDisplay="true"
+      isDisplay=true
     />
     <!-- Map Ground Component -->
     <StraightRoad
