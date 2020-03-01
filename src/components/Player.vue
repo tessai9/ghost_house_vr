@@ -11,7 +11,7 @@
             <a-entity cursor="fuse: true; fuseTimeout: 50"
                 position="0 0 -1"
                 geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.011"
-                material="color: wihte; shader: flat"
+                material="color: white; shader: flat"
                 >
             </a-entity>
         </a-camera>
@@ -40,7 +40,7 @@
         computed: {
             cameraPosition () {
                 const pos = this.localPosition
-                return `${pos.x} ${pos.y} ${pos.z}`
+                return pos
             }
         },
         methods: {
