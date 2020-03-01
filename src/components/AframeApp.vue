@@ -8,7 +8,15 @@
     </a-assets>
 
     <!-- Ghost Component -->
-    <Ghost img_path="#ghost_woman" :cordinate="cordinate" :size="size" isDisplay="true" />
+    <Ghost
+      v-for="ghost in ghost_list"
+      :key="ghost.no"
+      :img_path="ghost.image_id"
+      :size="ghost.size"
+      :position="ghost.position"
+      :event_area="ghost.event_area"
+      isDisplay=true
+    />
     <!-- Map Ground Component -->
     <StraightRoad
       v-for="i in map_length"
@@ -24,22 +32,14 @@
 <script>
 import Ghost from "@/components/Ghost.vue"
 import StraightRoad from "@/components/StraightRoad.vue"
+import GhostList from "@/GhostList.js"
 
 export default {
   name: "AframeApp",
   data(){
     return {
-      // demo property data for ghost component
-      cordinate: {
-        x: 0,
-        y: 2,
-        z: -10
-      },
-      size: {
-        width: 2,
-        height: 3
-      },
       map_length: 20,
+      ghost_list: GhostList.ghost_list
     }
   },
   components: {
