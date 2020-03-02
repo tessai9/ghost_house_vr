@@ -9,10 +9,10 @@
 
 <script>
 export default {
-  name: 'Ghost',
+  name: "Ghost",
   props: {
     img_path: { type: String, required: true },
-    isDisplay: { type: Boolean, default: true },
+    isDisplay: { type: Boolean, default: false },
     position: {
       type: Object,
       default: function() {

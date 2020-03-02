@@ -33,7 +33,7 @@
 
 <script>
 export default {
-  name: 'StraightRoad',
+  name: "StraightRoad",
   props: {
     ceiling_img_path: {
       type: String,
