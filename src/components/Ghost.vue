@@ -13,6 +13,7 @@ export default {
   props: {
     img_path: { type: String, required: true },
     isDisplay: { type: Boolean, default: true },
+    event_listener: { type: String, default: "" },
     position: {
       type: Object,
       default: function() {
@@ -32,7 +33,11 @@ export default {
       }
     },
   },
-  data(){
+  mounted() {
+    // set event listener key named for aframe
+    this.$el.setAttribute(this.event_listener)
+  },
+  data() {
     return {
       // geometry information
       geometry: {
