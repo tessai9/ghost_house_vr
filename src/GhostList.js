@@ -7,7 +7,7 @@ export default {
       position: { x: 0, y: 2, z: -10 },
       event_area: {
         x_area: [-2.5, 2.5],
-        z_area: [-7, -10]
+        z_area: [-10, -7]
       },
       event_listener: "appearance"
     },
@@ -18,7 +18,7 @@ export default {
       position: { x: 0.5, y: 2, z: -15 },
       event_area: {
         x_area: [-2.5, 2.5],
-        z_area: [-7, -10]
+        z_area: [-10, -7]
       },
       event_listener: "appearance"
     }

@@ -16,7 +16,7 @@
       :position="ghost.position"
       :event_area="ghost.event_area"
       :event_listener="ghost.event_listener"
-      isDisplay=true
+      is_display=false
     />
     <!-- Map Ground Component -->
     <StraightRoad

@@ -1,9 +1,10 @@
 <template lang="html">
   <a-entity
-    v-if="isDisplay"
+    :visible="is_display"
     :geometry="geometry"
     :position="position"
     :material="material"
+    @loaded="addEventListener()"
   ></a-entity>
 </template>
 
@@ -12,7 +13,7 @@ export default {
   name: 'Ghost',
   props: {
     img_path: { type: String, required: true },
-    isDisplay: { type: Boolean, default: true },
+    is_display: { type: Boolean, default: false },
     event_listener: { type: String, default: "" },
     position: {
       type: Object,
@@ -29,13 +30,9 @@ export default {
     event_area: {
       type: Object,
       default: function() {
-        return { x_area: [0], z_area: [0] }
+        return { x_area: [], z_area: [] }
       }
     },
-  },
-  mounted() {
-    // set event listener key named for aframe
-    this.$el.setAttribute(this.event_listener)
   },
   data() {
     return {
@@ -54,8 +51,16 @@ export default {
     }
   },
   methods: {
-    // Some movement for ghost component
-    // Need some event listner ?
+    // add event listener to component
+    addEventListener() {
+      const dataForEventListener = {
+        event_area: this.event_area,
+        player_position: {x: 2, z: -9},
+        is_display: this.is_display,
+      }
+      // set event listener key named for aframe
+      this.$el.setAttribute(this.event_listener, dataForEventListener)
+    }
   }
 }
 </script>
