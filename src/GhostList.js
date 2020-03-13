@@ -9,7 +9,7 @@ export default {
         x_area: [-2.5, 2.5],
         z_area: [-10, -7]
       },
-      event_listener: "appearance"
+      aframe_component: "appearance"
     },
     {
       no: 2,
@@ -20,7 +20,7 @@ export default {
         x_area: [-2.5, 2.5],
         z_area: [-10, -7]
       },
-      event_listener: "appearance"
+      aframe_component: "appearance"
     }
   ]
 }

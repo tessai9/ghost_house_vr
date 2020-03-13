@@ -15,8 +15,7 @@
       :size="ghost.size"
       :position="ghost.position"
       :event_area="ghost.event_area"
-      :event_listener="ghost.event_listener"
-      is_display=false
+      :aframe_component="ghost.aframe_component"
     />
     <!-- Map Ground Component -->
     <StraightRoad
@@ -38,8 +37,6 @@ import Ghost from "@/components/Ghost.vue"
 import StraightRoad from "@/components/StraightRoad.vue"
 import Player from '@/components//Player.vue'
 import GhostList from "@/GhostList.js"
-import EventListenerStore from "@/EventListenerStore.js"
-import 'aframe'
 
 export default {
   name: "AframeApp",
@@ -48,11 +45,6 @@ export default {
       map_length: 20,
       ghost_list: GhostList.ghost_list
     }
-  },
-  mounted() {
-    Object.keys(EventListenerStore).forEach(function(eventListener) {
-      AFRAME.registerComponent(eventListener, EventListenerStore[eventListener])
-    })
   },
   components: {
     Ghost,
