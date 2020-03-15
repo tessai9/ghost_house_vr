@@ -1,54 +1,55 @@
 <template lang="html">
     <a-entity 
-        id="rig" 
-        :position="cameraPosition"
+        id="player"
     >
         <a-camera
             id="camera"
             look-controls
-            wasd-controls="acceleration: 500" 
-            rotation-reader>
+            wasd-controls="acceleration: 500"
+            :position="position"
+            app-oculus-controls
+            >
             <a-entity cursor="fuse: true; fuseTimeout: 50"
                 position="0 0 -1"
                 geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.011"
                 material="color: white; shader: flat"
-                >
-            </a-entity>
+            ></a-entity>
         </a-camera>
     </a-entity>
 </template>
 
 <script>
-    export default {
-        name: 'Player',
-        props: {
-            position: {
-                type: Object,
-                required: false,
-                default: () => ( {x:0, y: 0, z:1} )
-            }
-        },
+    import aframe from "aframe"
+    import store from "../store/Store"
+
+    const Player =  {
+        name: "Player",
         data() {
             return {
-                localPosition: {
-                    x : this.position.x,
-                    y : this.position.y,
-                    z : this.position.z
-                }
+                position: store.getters.getPlayerPosition
             }
         },
         computed: {
-            cameraPosition () {
-                const pos = this.localPosition
-                return pos
+            playerPosition () {
+                return store.getters.getPlayerPosition
             }
         },
         methods: {
-            /*onClick() {
-                this.localPosition.y += 0.1
-            }*/
+            updatePlayerPosition(){                
+            }
         }
     }
+
+    aframe.registerComponent('app-oculus-controls', {
+        init: function() {
+            console.log('initialize')
+        },
+        tick: function() {
+            store.dispatch("updatePlayerPositoin", this.el.object3D.position)
+        }
+    })
+
+    export default Player
 </script>
 
 <style lang="css" scoped>
