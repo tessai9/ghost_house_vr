@@ -22,7 +22,7 @@
     import aframe from "aframe"
     import store from "../store/Store"
 
-    const Player =  {
+    export default Player =  {
         name: "Player",
         data() {
             return {
@@ -34,10 +34,7 @@
                 return store.getters.getPlayerPosition
             }
         },
-        methods: {
-            updatePlayerPosition(){                
-            }
-        }
+        methods: {}
     }
 
     aframe.registerComponent('app-oculus-controls', {
@@ -49,7 +46,6 @@
         }
     })
 
-    export default Player
 </script>
 
 <style lang="css" scoped>

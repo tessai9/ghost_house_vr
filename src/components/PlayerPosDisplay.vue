@@ -3,8 +3,7 @@
         <a-text 
             :value="playerPositionStr"
             :position="textPosition"
-        >
-        </a-text>
+        ></a-text>
     </a-entity>
 </template>
 
