@@ -19,7 +19,6 @@ export default {
             const y = this.$store.getters.getPlayerPosition.y
             const z = this.$store.getters.getPlayerPosition.z
             const relPos = {x:-fixedPos.x+x, y:-fixedPos.y+y, z:-fixedPos.z+z}
-            console.log(relPos)
             return relPos
         },
         playerPositionStr () {

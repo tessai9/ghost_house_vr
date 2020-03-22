@@ -22,7 +22,7 @@
     import aframe from "aframe"
     import store from "../store/Store"
 
-    export default Player =  {
+    export default {
         name: "Player",
         data() {
             return {
@@ -38,9 +38,7 @@
     }
 
     aframe.registerComponent('app-oculus-controls', {
-        init: function() {
-            console.log('initialize')
-        },
+        init: function() {},
         tick: function() {
             store.dispatch("updatePlayerPositoin", this.el.object3D.position)
         }
