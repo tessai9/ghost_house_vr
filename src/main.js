@@ -1,9 +1,7 @@
-import Vue from "vue"
-import Vuex from "vuex"
-import App from "@/App.vue"
-import "aframe"
-
-Vue.use(Vuex)
+import Vue from 'vue'
+import App from '@/App.vue'
+import 'aframe'
+import Store from '@/store/Store.js'
 
 Vue.config.productionTip = false
 Vue.config.ignoredElements = [
@@ -14,5 +12,6 @@ Vue.config.ignoredElements = [
 ]
 
 new Vue({
+  store: Store,
   render: h => h(App),
 }).$mount("#app")
