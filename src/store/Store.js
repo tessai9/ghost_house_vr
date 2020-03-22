@@ -6,15 +6,27 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     // player position information
-    player_x_position: 0,
-    player_y_position: 0,
-    player_z_position: 0
+    player_position: {x: 0, y: 2, z: 1}
   },
+
+  getters: {
+    getPlayerPosition(state) {
+      return state.player_position
+    }
+  },
+
   mutations: {
-     changePlayerPositoin(state, position) {
-       state.player_x_position = position.x
-       state.player_y_position = position.y
-       state.player_z_position = position.z
+     changePlayerPositoin(state, payload) {
+       const x = payload.position.x
+       const y = payload.position.y
+       const z = payload.position.z
+       state.player_position = {x:x, y:y, z:z}
      }
+  },
+
+  actions: {
+    updatePlayerPositoin({commit}, position){
+      commit("changePlayerPositoin", {position})
+    }
   }
 })

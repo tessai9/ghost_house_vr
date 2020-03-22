@@ -15,7 +15,7 @@
       :size="ghost.size"
       :position="ghost.position"
       :event_area="ghost.event_area"
-      isDisplay=true
+      :isDisplay=true
     />
     <!-- Map Ground Component -->
     <StraightRoad
@@ -29,13 +29,15 @@
 
     <!-- Player Component -->
     <Player />
+    <PlayerPosDisplay />
   </a-scene>
 </template>
 
 <script>
 import Ghost from "@/components/Ghost.vue"
 import StraightRoad from "@/components/StraightRoad.vue"
-import Player from '@/components//Player.vue'
+import Player from "@/components/Player.vue"
+import PlayerPosDisplay from "@/components/PlayerPosDisplay.vue"
 import GhostList from "@/GhostList.js"
 
 export default {
@@ -49,7 +51,8 @@ export default {
   components: {
     Ghost,
     StraightRoad,
-    Player
+    Player,
+    PlayerPosDisplay
   }
 }
 </script>
