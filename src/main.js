@@ -1,10 +1,8 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
 import App from '@/App.vue'
 import AframeComponentStore from "@/AframeComponentStore.js"
 import 'aframe'
-
-Vue.use(Vuex)
+import Store from '@/store/Store.js'
 
 Vue.config.productionTip = false
 Vue.config.ignoredElements = [
@@ -20,5 +18,6 @@ Object.keys(AframeComponentStore).forEach(function(component) {
 })
 
 new Vue({
+  store: Store,
   render: h => h(App),
 }).$mount('#app')
