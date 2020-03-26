@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from '@/App.vue'
-import AframeComponentStore from "@/AframeComponentStore.js"
+// import AframeComponentStore from "@/AframeComponentStore.js"
 import 'aframe'
 import Store from '@/store/Store.js'
 
@@ -13,9 +13,9 @@ Vue.config.ignoredElements = [
 ]
 
 // event listenerの登録
-Object.keys(AframeComponentStore).forEach(function(component) {
-  AFRAME.registerComponent(component, AframeComponentStore[component])
-})
+// Object.keys(AframeComponentStore).forEach(function(component) {
+//   AFRAME.registerComponent(component, AframeComponentStore[component])
+// })
 
 new Vue({
   store: Store,

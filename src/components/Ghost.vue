@@ -1,6 +1,5 @@
 <template lang="html">
   <a-entity
-    ref="entity"
     :geometry="geometry"
     :position="position"
     :material="material"

@@ -16,7 +16,6 @@
       :position="ghost.position"
       :event_area="ghost.event_area"
       :aframe_component="ghost.aframe_component"
-      :isDisplay=true
     />
     <!-- Map Ground Component -->
     <StraightRoad
