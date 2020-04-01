@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "aframe": "^1.0.3",
-    "angle": "^0.9.1",
     "core-js": "^3.4.4",
     "vue": "^2.6.10",
     "vuex": "^3.1.2"
@@ -32,7 +31,9 @@
       "plugin:vue/essential",
       "eslint:recommended"
     ],
-    "rules": {},
+    "rules": {
+      "no-console": "off"
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }

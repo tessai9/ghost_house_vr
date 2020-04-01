@@ -1,5 +1,5 @@
 <template lang="html">
-    <a-entity 
+    <a-entity
         id="player"
     >
         <a-camera
@@ -19,31 +19,30 @@
 </template>
 
 <script>
-    import aframe from "aframe"
-    import store from "../store/Store"
+import aframe from "aframe"
+import store from "../store/Store"
 
-    export default {
-        name: "Player",
-        data() {
-            return {
-                position: store.getters.getPlayerPosition
-            }
-        },
-        computed: {
-            playerPosition () {
-                return store.getters.getPlayerPosition
-            }
-        },
-        methods: {}
-    }
+export default {
+  name: "Player",
+  data() {
+      return {
+          position: store.getters.getPlayerPosition
+      }
+  },
+  computed: {
+      playerPosition () {
+          return store.getters.getPlayerPosition
+      }
+  },
+  methods: {}
+}
 
-    aframe.registerComponent('app-oculus-controls', {
-        init: function() {},
-        tick: function() {
-            store.dispatch("updatePlayerPositoin", this.el.object3D.position)
-        }
-    })
-
+aframe.registerComponent('app-oculus-controls', {
+  init: function() {},
+  tick: function() {
+      store.dispatch("updatePlayerPositoin", this.el.object3D.position)
+  }
+})
 </script>
 
 <style lang="css" scoped>
