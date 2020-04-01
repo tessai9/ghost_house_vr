@@ -1,5 +1,5 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue"
+import Vuex from "vuex"
 
 Vue.use(Vuex)
 
@@ -16,12 +16,12 @@ export default new Vuex.Store({
   },
 
   mutations: {
-     changePlayerPositoin(state, payload) {
-       const x = payload.position.x
-       const y = payload.position.y
-       const z = payload.position.z
-       state.player_position = {x:x, y:y, z:z}
-     }
+    changePlayerPositoin(state, payload) {
+      const x = payload.position.x
+      const y = payload.position.y
+      const z = payload.position.z
+      state.player_position = {x:x, y:y, z:z}
+    }
   },
 
   actions: {
