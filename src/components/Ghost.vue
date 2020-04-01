@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'Ghost',
+  name: "Ghost",
   props: {
     img_path: { type: String, required: true },
     aframe_component: { type: String, default: "" },

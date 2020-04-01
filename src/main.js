@@ -6,10 +6,10 @@ import Store from '@/store/Store.js'
 
 Vue.config.productionTip = false
 Vue.config.ignoredElements = [
-  'a-scene',
-  'a-assets',
-  'a-camera',
-  'a-entity',
+  "a-scene",
+  "a-assets",
+  "a-camera",
+  "a-entity",
 ]
 
 // event listenerの登録
@@ -20,4 +20,4 @@ Object.keys(AframeComponentStore).forEach(function(component) {
 new Vue({
   store: Store,
   render: h => h(App),
-}).$mount('#app')
+}).$mount("#app")
