@@ -1,6 +1,6 @@
 <template lang="html">
   <a-entity
-    v-if="isDisplay"
+    ref="entity"
     :geometry="geometry"
     :position="position"
     :material="material"
@@ -12,7 +12,7 @@ export default {
   name: "Ghost",
   props: {
     img_path: { type: String, required: true },
-    isDisplay: { type: Boolean, default: true },
+    aframe_component: { type: String, default: "" },
     position: {
       type: Object,
       default: function() {
@@ -28,11 +28,11 @@ export default {
     event_area: {
       type: Object,
       default: function() {
-        return { x_area: [0], z_area: [0] }
+        return { x_area: [], z_area: [] }
       }
     },
   },
-  data(){
+  data() {
     return {
       // geometry information
       geometry: {
@@ -48,9 +48,17 @@ export default {
       }
     }
   },
+  mounted() {
+    const dataForComponent = {
+      x_area: this.event_area.x_area,
+      z_area: this.event_area.z_area,
+      player_position: {x: 2, y: 0, z: -1},
+    }
+    // set event listener key named for aframe
+    this.$refs.entity.setAttribute(this.aframe_component, dataForComponent)
+  },
   methods: {
-    // Some movement for ghost component
-    // Need some event listner ?
+    // something methods
   }
 }
 </script>
