@@ -49,10 +49,10 @@ export default {
     }
   },
   mounted() {
+    // event area
     const dataForComponent = {
       x_area: this.event_area.x_area,
-      z_area: this.event_area.z_area,
-      player_position: {x: 2, y: 0, z: -1},
+      z_area: this.event_area.z_area
     }
     // set event listener key named for aframe
     this.$refs.entity.setAttribute(this.aframe_component, dataForComponent)
