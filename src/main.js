@@ -1,8 +1,8 @@
-import Vue from 'vue'
-import App from '@/App.vue'
+import Vue from "vue"
+import App from "@/App.vue"
 import AframeComponentStore from "@/AframeComponentStore.js"
-import Aframe from 'aframe'
-import Store from '@/store/Store.js'
+import Aframe from "aframe"
+import Store from "@/store/Store.js"
 
 Vue.config.productionTip = false
 Vue.config.ignoredElements = [
