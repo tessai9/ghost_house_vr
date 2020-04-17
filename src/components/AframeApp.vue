@@ -26,6 +26,8 @@
       ground_img_path="#ground_img"
       wall_img_path="#wall_img"
     />
+    <!-- light -->
+    <a-entity light="type: ambient; intensity: 0.2;"></a-entity>
 
     <!-- Player Component -->
     <Player />
