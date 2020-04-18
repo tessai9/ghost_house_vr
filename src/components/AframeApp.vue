@@ -5,6 +5,7 @@
       <img id="ground_img" src="@/assets/floor.png" />
       <img id="wall_img" src="@/assets/wall.jpg" />
       <img id="ceiling_img" src="@/assets/ceiling.jpg" />
+      <audio id="world_sound" src="@/assets/sound/world_sound.mp3" preload="auto" />
     </a-assets>
 
     <!-- Ghost Component -->
@@ -28,6 +29,11 @@
     />
     <!-- light -->
     <a-entity light="type: ambient; intensity: 0.2;"></a-entity>
+    <!-- World sound -->
+    <a-entity
+      sound="src: #world_sound; loop: true; volume: 3;"
+      @loaded="PlayWorldSound"
+    ></a-entity>
 
     <!-- Player Component -->
     <Player />
@@ -49,6 +55,18 @@ export default {
       map_length: 20,
       ghost_list: GhostList.ghost_list
     }
+  },
+  mounted() {
+    // Vueの何かでできそうだが・・・
+    let sound_entity = document.querySelector("[sound]")
+    sound_entity.components.sound.playSound()
+  },
+  methods: {
+    PlayWorldSound() {
+      // Vueの何かでできそうだが・・・
+      let sound_entity = document.querySelector("[sound]")
+      sound_entity.components.sound.playSound()
+    },
   },
   components: {
     Ghost,
