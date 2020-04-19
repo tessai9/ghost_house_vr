@@ -4,6 +4,7 @@
     :geometry="geometry"
     :position="position"
     :material="material"
+    :sound="sound"
   ></a-entity>
 </template>
 
@@ -13,6 +14,7 @@ export default {
   props: {
     img_path: { type: String, required: true },
     aframe_component: { type: String, default: "" },
+    sound_id: { type: String, default: "" },
     position: {
       type: Object,
       default: function() {
@@ -45,7 +47,12 @@ export default {
         src: this.img_path,
         shader: "standard",
         transparent: true
-      }
+      },
+      // sound information
+      sound: {
+        src: this.sound_id,
+        volume: 3,
+      },
     }
   },
   mounted() {

@@ -6,6 +6,11 @@
       <img id="wall_img" src="@/assets/wall.jpg" />
       <img id="ceiling_img" src="@/assets/ceiling.jpg" />
       <audio id="world_sound" src="@/assets/sound/world_sound.mp3" preload="auto" />
+      <audio id="walk_sound" src="@/assets/sound/walk_sound.mp3" preload="auto" />
+      <audio id="ghost_voice_1" src="@/assets/sound/ghost_voice_1.mp3" preload="auto" />
+      <audio id="ghost_voice_2" src="@/assets/sound/ghost_voice_2.mp3" preload="auto" />
+      <audio id="ghost_scream_1" src="@/assets/sound/ghost_scream_1.mp3" preload="auto" />
+      <audio id="ghost_scream_2" src="@/assets/sound/ghost_scream_2.mp3" preload="auto" />
     </a-assets>
 
     <!-- Ghost Component -->
@@ -16,6 +21,7 @@
       :size="ghost.size"
       :position="ghost.position"
       :event_area="ghost.event_area"
+      :sound_id="ghost.sound_id"
       :aframe_component="ghost.aframe_component"
     />
     <!-- Map Ground Component -->
@@ -31,8 +37,9 @@
     <a-entity light="type: ambient; intensity: 0.2;"></a-entity>
     <!-- World sound -->
     <a-entity
-      sound="src: #world_sound; loop: true; volume: 3;"
-      @loaded="PlayWorldSound"
+      world_sound
+      sound="src: #world_sound; loop: true; volume: 3; autoplay: true;"
+      ref="world_sound"
     ></a-entity>
 
     <!-- Player Component -->
@@ -56,18 +63,8 @@ export default {
       ghost_list: GhostList.ghost_list
     }
   },
-  mounted() {
-    // Vueの何かでできそうだが・・・
-    let sound_entity = document.querySelector("[sound]")
-    sound_entity.components.sound.playSound()
-  },
-  methods: {
-    PlayWorldSound() {
-      // Vueの何かでできそうだが・・・
-      let sound_entity = document.querySelector("[sound]")
-      sound_entity.components.sound.playSound()
-    },
-  },
+  mounted() {},
+  methods: {},
   components: {
     Ghost,
     StraightRoad,

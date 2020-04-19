@@ -8,8 +8,8 @@ export default {
       z_area: { type: "array" }
     },
     init: function() {
-      console.log("initialization for appearance");
-      this.el.object3D.visible = false;
+      console.log("initialization for appearance")
+      this.el.setAttribute("visible", false)
     },
     tick: function() {
       // プレイヤーが出現エリアに入ったらvisible = trueに
@@ -19,11 +19,12 @@ export default {
         store.getters.getPlayerPosition.z >= this.data.z_area[0] &&
         store.getters.getPlayerPosition.z <= this.data.z_area[1]
       ) {
-        this.el.object3D.visible = true;
+        this.el.setAttribute("visible", true)
+        this.el.components.sound.playSound()
       } else {
-        this.el.object3D.visible = false;
+        this.el.setAttribute("visible", false)
       }
-    }
+    },
   },
   // 下から上に飛び出る
   down_to_up: {
@@ -32,7 +33,7 @@ export default {
       z_area: { type: "array" }
     },
     init: function() {
-      console.log("initialization for down_to_up");
+      console.log("initialization for down_to_up")
       this.el.object3D.position.y = -5;
     },
     tick: function() {
