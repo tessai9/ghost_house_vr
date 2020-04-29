@@ -23,8 +23,8 @@ export default {
     },
     playerPositionStr () {
       const posStr = "X: " + String(this.$store.getters.getPlayerPosition.x).substr(0, 4) +
-                            ", Y: " + String(this.$store.getters.getPlayerPosition.y).substr(0, 4) +
-                            ", Z: " + String(this.$store.getters.getPlayerPosition.z).substr(0, 4)
+                     ", Y: " + String(this.$store.getters.getPlayerPosition.y).substr(0, 4) +
+                     ", Z: " + String(this.$store.getters.getPlayerPosition.z).substr(0, 4)
       return posStr
     }
   }
