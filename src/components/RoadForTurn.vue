@@ -23,12 +23,12 @@
       position="0 2.5 -2.5"
       rotation="0 0 0"
     ></a-entity>
-    <!-- Left Wall -->
+    <!-- Side Wall -->
     <a-entity
       :geometry="wall_geometry"
       :material="wall_material"
-      position="-2.5 2.5 0"
-      rotation="0 90 0"
+      :position="side_wall_position"
+      :rotation="side_wall_rotation"
     ></a-entity>
   </a-entity>
 </template>
@@ -55,6 +55,10 @@ export default {
       type: Object,
       required: true
     },
+    direction: {
+      type: String,
+      default: "right"
+    }
   },
   data() {
     return {
@@ -85,8 +89,29 @@ export default {
       wall_material: {
         src: this.wall_img_path
       },
+      // side wall
+      side_wall_position: {},
+      side_wall_rotation: {},
     }
   },
+  mounted() {
+    console.log(this.direction)
+    switch(this.direction) {
+    case "right":
+      this.side_wall_position = { x: -2.5, y: 2.5, z: 0 }
+      this.side_wall_rotation = { x: 0, y: 90, z: 0 }
+      break
+    case "left":
+      this.side_wall_position = { x: 2.5, y: 2.5, z: 0 }
+      this.side_wall_rotation = { x: 0, y: -90, z: 0 }
+      break
+    default:
+      this.side_wall_position = { x: -2.5, y: 2.5, z: 0 }
+      this.side_wall_rotation = { x: 0, y: 90, z: 0 }
+      break
+    }
+  },
+  methods: {},
 }
 </script>
 

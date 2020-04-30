@@ -34,8 +34,10 @@
       ground_img_path="#ground_img"
       wall_img_path="#wall_img"
     />
-    <RoadForRightTurn
+    <!-- Sample turn road to left -->
+    <RoadForTurn
       :position="right_turn_position_sample"
+      direction="left"
       ceiling_img_path="#ceiling_img"
       ground_img_path="#ground_img"
       wall_img_path="#wall_img"
@@ -58,7 +60,7 @@
 <script>
 import Ghost from "@/components/Ghost.vue"
 import RoadForStraight from "@/components/RoadForStraight.vue"
-import RoadForRightTurn from "@/components/RoadForRightTurn.vue"
+import RoadForTurn from "@/components/RoadForTurn.vue"
 import Player from "@/components/Player.vue"
 import PlayerPosDisplay from "@/components/PlayerPosDisplay.vue"
 import GhostList from "@/GhostList.js"
@@ -77,7 +79,7 @@ export default {
   components: {
     Ghost,
     RoadForStraight,
-    RoadForRightTurn,
+    RoadForTurn,
     Player,
     PlayerPosDisplay
   }

@@ -91,17 +91,9 @@ export default {
         src: this.wall_img_path
       },
       // road position
-      road_position: {
-        x: 0,
-        y: 0,
-        z: 0
-      },
+      road_position: {},
       // road rotation
-      road_rotation: {
-        x: 0,
-        y: 0,
-        z: 0
-      }
+      road_rotation: {}
     }
   },
   mounted() {
@@ -113,14 +105,14 @@ export default {
       const z_position = (index - 1) * ROAD_INTERVAL * -1
       return { x: 0, y: 0, z: z_position }
     },
-    setRoadRoration(direction) {
+    setRoadRotation(direction) {
       switch(direction) {
-        case "vertical":
-          return { x: 0, y: 0, z: 0 }
-        case "horizontal":
-          return { x: 0, y: 90, z: 0 }
-        default:
-          return { x: 0, y: 0, z: 0 }
+      case "vertical":
+        return { x: 0, y: 0, z: 0 }
+      case "horizontal":
+        return { x: 0, y: 90, z: 0 }
+      default:
+        return { x: 0, y: 0, z: 0 }
       }
     }
   }
