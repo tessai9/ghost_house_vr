@@ -25,10 +25,19 @@
       :aframe_component="ghost.aframe_component"
     />
     <!-- Map Ground Component -->
-    <StraightRoad
+    <RoadForStraight
       v-for="i in map_length"
       :key="i"
       :index="i"
+      direction="vertical"
+      ceiling_img_path="#ceiling_img"
+      ground_img_path="#ground_img"
+      wall_img_path="#wall_img"
+    />
+    <!-- Sample turn road to left -->
+    <RoadForTurn
+      :position="right_turn_position_sample"
+      direction="left"
       ceiling_img_path="#ceiling_img"
       ground_img_path="#ground_img"
       wall_img_path="#wall_img"
@@ -50,7 +59,8 @@
 
 <script>
 import Ghost from "@/components/Ghost.vue"
-import StraightRoad from "@/components/StraightRoad.vue"
+import RoadForStraight from "@/components/RoadForStraight.vue"
+import RoadForTurn from "@/components/RoadForTurn.vue"
 import Player from "@/components/Player.vue"
 import PlayerPosDisplay from "@/components/PlayerPosDisplay.vue"
 import GhostList from "@/GhostList.js"
@@ -59,15 +69,17 @@ export default {
   name: "AframeApp",
   data(){
     return {
-      map_length: 20,
-      ghost_list: GhostList.ghost_list
+      map_length: 10,
+      ghost_list: GhostList.ghost_list,
+      right_turn_position_sample: { x: 0, y: 0, z: -50 }
     }
   },
   mounted() {},
   methods: {},
   components: {
     Ghost,
-    StraightRoad,
+    RoadForStraight,
+    RoadForTurn,
     Player,
     PlayerPosDisplay
   }
