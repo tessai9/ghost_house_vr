@@ -1,17 +1,7 @@
 <template lang="html">
   <a-scene>
-    <a-assets>
-      <img id="ghost_woman" src="@/assets/ghost_woman.png" />
-      <img id="ground_img" src="@/assets/floor.png" />
-      <img id="wall_img" src="@/assets/wall.jpg" />
-      <img id="ceiling_img" src="@/assets/ceiling.jpg" />
-      <audio id="world_sound" src="@/assets/sound/world_sound.mp3" preload="auto" />
-      <audio id="walk_sound" src="@/assets/sound/walk_sound.mp3" preload="auto" />
-      <audio id="ghost_voice_1" src="@/assets/sound/ghost_voice_1.mp3" preload="auto" />
-      <audio id="ghost_voice_2" src="@/assets/sound/ghost_voice_2.mp3" preload="auto" />
-      <audio id="ghost_scream_1" src="@/assets/sound/ghost_scream_1.mp3" preload="auto" />
-      <audio id="ghost_scream_2" src="@/assets/sound/ghost_scream_2.mp3" preload="auto" />
-    </a-assets>
+    <!-- Asset Files -->
+    <Assets />
 
     <!-- Ghost Component -->
     <Ghost
@@ -58,6 +48,7 @@
 </template>
 
 <script>
+import Assets from "@/components/Assets.vue"
 import Ghost from "@/components/Ghost.vue"
 import RoadForStraight from "@/components/RoadForStraight.vue"
 import RoadForTurn from "@/components/RoadForTurn.vue"
@@ -77,6 +68,7 @@ export default {
   mounted() {},
   methods: {},
   components: {
+    Assets,
     Ghost,
     RoadForStraight,
     RoadForTurn,
