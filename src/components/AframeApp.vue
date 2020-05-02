@@ -1,22 +1,22 @@
 <template lang="html">
   <a-scene>
     <a-assets>
-      <img id="ghost_woman" src="@/assets/ghost_woman.png" />
-      <img id="ground_img" src="@/assets/floor.png" />
-      <img id="wall_img" src="@/assets/wall.jpg" />
-      <img id="ceiling_img" src="@/assets/ceiling.jpg" />
-      <audio id="world_sound" src="@/assets/sound/world_sound.mp3" preload="auto" />
-      <audio id="walk_sound" src="@/assets/sound/walk_sound.mp3" preload="auto" />
-      <audio id="ghost_voice_1" src="@/assets/sound/ghost_voice_1.mp3" preload="auto" />
-      <audio id="ghost_voice_2" src="@/assets/sound/ghost_voice_2.mp3" preload="auto" />
-      <audio id="ghost_scream_1" src="@/assets/sound/ghost_scream_1.mp3" preload="auto" />
-      <audio id="ghost_scream_2" src="@/assets/sound/ghost_scream_2.mp3" preload="auto" />
+      <img id="ghost_woman" src="/assets/ghost_woman.png" />
+      <img id="ground_img" src="/assets/floor.png" />
+      <img id="wall_img" src="/assets/wall.jpg" />
+      <img id="ceiling_img" src="/assets/ceiling.jpg" />
+      <audio id="world_sound" src="/assets/sound/world_sound.mp3" preload="auto" />
+      <audio id="walk_sound" src="/assets/sound/walk_sound.mp3" preload="auto" />
+      <audio id="ghost_voice_1" src="/assets/sound/ghost_voice_1.mp3" preload="auto" />
+      <audio id="ghost_voice_2" src="/assets/sound/ghost_voice_2.mp3" preload="auto" />
+      <audio id="ghost_scream_1" src="/assets/sound/ghost_scream_1.mp3" preload="auto" />
+      <audio id="ghost_scream_2" src="/assets/sound/ghost_scream_2.mp3" preload="auto" />
     </a-assets>
 
     <!-- Ghost Component -->
     <Ghost
       v-for="ghost in ghost_list"
-      :key="ghost.no"
+      :key="`ghost-${ghost.no}`"
       :img_path="ghost.image_id"
       :size="ghost.size"
       :position="ghost.position"
@@ -27,7 +27,7 @@
     <!-- Map Ground Component -->
     <StraightRoad
       v-for="i in map_length"
-      :key="i"
+      :key="`map-${i}`"
       :index="i"
       ceiling_img_path="#ceiling_img"
       ground_img_path="#ground_img"
@@ -49,11 +49,11 @@
 </template>
 
 <script>
-import Ghost from "@/components/Ghost.vue"
-import StraightRoad from "@/components/StraightRoad.vue"
-import Player from "@/components/Player.vue"
-import PlayerPosDisplay from "@/components/PlayerPosDisplay.vue"
-import GhostList from "@/GhostList.js"
+import Ghost from "./Ghost.vue"
+import StraightRoad from "./StraightRoad.vue"
+import Player from "./Player.vue"
+import PlayerPosDisplay from "./PlayerPosDisplay.vue"
+import GhostList from "../GhostList.js"
 
 export default {
   name: "AframeApp",

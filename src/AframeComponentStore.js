@@ -1,4 +1,4 @@
-import store from "@/store/Store.js"
+import store from "./store/Store.js"
 
 export default {
   // 突然現れる
