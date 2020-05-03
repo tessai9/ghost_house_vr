@@ -1,5 +1,5 @@
 <template lang="html">
-  <a-scene>
+  <a-scene physics="debug: false">
     <!-- Asset Files -->
     <Assets />
 

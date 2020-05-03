@@ -1318,7 +1318,25 @@ address@^1.1.2:
   resolved "https://registry.yarnpkg.com/address/-/address-1.1.2.tgz#bf1116c9c758c51b7a933d296b72c221ed9428b6"
   integrity sha512-aT6camzM4xEA54YVJYSqxz1kv4IHnQZRtThJJHhUMRExaU5spC7jX5ugSwTaTgJliIgs4VhZOk7htClvQ/LmRA==
 
-aframe@^1.0.3:
+aframe-extras@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/aframe-extras/-/aframe-extras-6.1.0.tgz#75bff7d5e0f76ee424214500cd182c0baa410c9f"
+  integrity sha512-4UXIRN5juhPCC2DqHQ+pBaFViNEbpXN+TkR7GfF8eJlPbkygeDLlJsNN7cWGIRLRzw4JGGl0tcw8MHlqzH9jtg==
+  dependencies:
+    three-pathfinding "^0.7.0"
+
+aframe-physics-system@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/aframe-physics-system/-/aframe-physics-system-4.0.1.tgz#8cef7bd2b62088ef0e6a1757929fbebe727fc435"
+  integrity sha512-KzgWd9sCdxI+bbLNwHHIkXMDH9Z8G/w3l4z2cfdbM0JusQ5giHMq/ONVmLJXNm1YZyE+QSfsE+YwjCLnJyE25w==
+  dependencies:
+    ammo-debug-drawer "github:infinitelee/ammo-debug-drawer"
+    cannon "github:donmccurdy/cannon.js#v0.6.2-dev1"
+    three-to-ammo "github:infinitelee/three-to-ammo"
+    three-to-cannon "^1.3.0"
+    webworkify "^1.4.0"
+
+aframe@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/aframe/-/aframe-1.0.4.tgz#1b659533db0f5cf9b002c22804278da8349a32d2"
   integrity sha512-iG/4VyRt22zUPxDsFjP4SHUXNPGIStM2hHX/iPblht6dtN8m09e7LAaFq4iQdXoT0EkZBWEVmXVBF1J7Tca3QQ==
@@ -1368,6 +1386,19 @@ alphanum-sort@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
+
+ammo-debug-drawer@0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/ammo-debug-drawer/-/ammo-debug-drawer-0.1.0.tgz#ffa4728445101fbc8f92e4b812f12e594401512e"
+  integrity sha512-GIfIf748qpfg++iXFzTB1p/M7ncJK5/X2qkg7mAQm4SPyhx93PSEejSEsZiPnk8eUUwlpyPSRMPDnpITMvlJCg==
+
+"ammo-debug-drawer@github:infinitelee/ammo-debug-drawer":
+  version "1.0.1"
+  resolved "https://codeload.github.com/infinitelee/ammo-debug-drawer/tar.gz/561fd698109e61456f34136a53dd08b45d4ad9ca"
+
+"ammo.js@github:mozillareality/ammo.js#hubs/master":
+  version "0.0.2"
+  resolved "https://codeload.github.com/mozillareality/ammo.js/tar.gz/a38109e87e300c820da14c9615be379caf03d77a"
 
 an-array@^1.0.0:
   version "1.0.0"
@@ -2027,6 +2058,10 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001036, caniuse-lite@^1.0.30001038:
   version "1.0.30001039"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001039.tgz#b3814a1c38ffeb23567f8323500c09526a577bbe"
   integrity sha512-SezbWCTT34eyFoWHgx8UWso7YtvtM7oosmFoXbCkdC6qJzRfBTeTgE9REtKtiuKXuMwWTZEvdnFNGAyVMorv8Q==
+
+"cannon@github:donmccurdy/cannon.js#v0.6.2-dev1":
+  version "0.6.2"
+  resolved "https://codeload.github.com/donmccurdy/cannon.js/tar.gz/022e8ba53fa83abf0ad8a0e4fd08623123838a17"
 
 cardboard-vr-display@^1.0.18:
   version "1.0.18"
@@ -7782,6 +7817,30 @@ three-buffer-vertex-data@dmarcos/three-buffer-vertex-data#69378fc58daf27d3b1d930
   dependencies:
     flatten-vertex-data "^1.0.0"
 
+three-pathfinding@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/three-pathfinding/-/three-pathfinding-0.7.0.tgz#bf64ec409bee6e7d8e19be96c7b40ebd7ef6f10d"
+  integrity sha512-UwWvzgio1UFe81n5jKHNzB4B+AG3wfZ54OKp7bTb1MHuC3cy6RTtr0dbbiPQQoqxzr+DRArR2DUwQSEknw5+nw==
+
+three-to-ammo@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/three-to-ammo/-/three-to-ammo-1.0.0.tgz#e4f7ca98d1eef29c56f627f6cc3f8ff2887222cb"
+  integrity sha512-JqaKAcC5y+Nz90n0+P4eCu/M2th0B/2whhCi+0yaZh9iv//UF+1IaQuebiN1n24tx3eFpL+LcJIG7H5VIyySJA==
+
+"three-to-ammo@github:infinitelee/three-to-ammo":
+  version "1.0.0"
+  resolved "https://codeload.github.com/infinitelee/three-to-ammo/tar.gz/92fd0e8300e693d4d48a603a8c446e520f9568ab"
+
+three-to-cannon@^1.3.0:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/three-to-cannon/-/three-to-cannon-1.4.1.tgz#37e44eb40a83089ab7fe4821d5dc9ce7aa147e49"
+  integrity sha512-AhaDXAqRg48wYBjMGo/Nxl0o67sW4/nGN3yIIfxMkQwL5nYLaLVnkz6aQNpn1vNNKuqHhqLFCZR7qSnSXzhhog==
+
+three@^0.116.1:
+  version "0.116.1"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.116.1.tgz#a393f7a81fdc3e2fbf57ded5ba47dc5bd3678ce0"
+  integrity sha512-l2JCMiA/lVZAuSrLWRYMalvpR+0j8hbIhCpfs4V6JFnw2+JQEQJ5HltNpfFr+9TDpQts1BhtcISehWf/xBGPvQ==
+
 through2@^2.0.0:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/through2/-/through2-2.0.5.tgz#01c1e39eb31d07cb7d03a96a70823260b23132cd"
@@ -8404,6 +8463,11 @@ webvr-polyfill@^0.10.10:
   integrity sha512-mzTuMpC3W/aKmm5QxYtTzXAxhVo3tR4c0D5Kihk8Q38GVxiCOvS4Ga4LBN8CsFVpXu1WkGeuf/hMzF75iWYiyA==
   dependencies:
     cardboard-vr-display "^1.0.18"
+
+webworkify@^1.4.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/webworkify/-/webworkify-1.5.0.tgz#734ad87a774de6ebdd546e1d3e027da5b8f4a42c"
+  integrity sha512-AMcUeyXAhbACL8S2hqqdqOLqvJ8ylmIbNwUIqQujRSouf4+eUFaXbG6F1Rbu+srlJMmxQWsiU7mOJi0nMBfM1g==
 
 which-module@^2.0.0:
   version "2.0.0"

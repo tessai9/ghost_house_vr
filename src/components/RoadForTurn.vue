@@ -8,6 +8,7 @@
       :material="ceiling_material"
       position="0 5 0"
       rotation="90 0 0"
+      static-body
     ></a-entity>
     <!-- Ground -->
     <a-entity
@@ -15,6 +16,7 @@
       :material="ground_material"
       position="0 0 0"
       rotation="-90 0 0"
+      static-body
     ></a-entity>
     <!-- Front Wall -->
     <a-entity
@@ -22,6 +24,7 @@
       :material="wall_material"
       position="0 2.5 -2.5"
       rotation="0 0 0"
+      static-body
     ></a-entity>
     <!-- Side Wall -->
     <a-entity
@@ -29,6 +32,7 @@
       :material="wall_material"
       :position="side_wall_position"
       :rotation="side_wall_rotation"
+      static-body
     ></a-entity>
   </a-entity>
 </template>

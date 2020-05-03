@@ -1,23 +1,22 @@
 <template lang="html">
-    <a-entity id="player">
-      <a-camera
+    <a-entity id="player"
+      movement-controls="speed: 0.2"
+      jump-ability
+      kinematic-body="mass: 100; radius: 0.05"
+      :position="position"
+      app-oculus-controls>
+      <a-entity
+        camera
         id="camera"
-        look-controls
-        wasd-controls="acceleration: 500"
         :position="position"
-        app-oculus-controls
+        look-controls="pointerLockEnabled: true"
       >
-      <a-entity cursor="fuse: true; fuseTimeout: 50"
-        position="0 0 -1"
-        geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.011"
-        material="color: white; shader: flat"
-      ></a-entity>
-      </a-camera>
+      </a-entity>
     </a-entity>
 </template>
 
 <script>
-import aframe from "aframe"
+import Aframe from "aframe"
 import store from "../store/Store"
 
 export default {
@@ -35,7 +34,7 @@ export default {
   methods: {}
 }
 
-aframe.registerComponent("app-oculus-controls", {
+Aframe.registerComponent("app-oculus-controls", {
   init: function() {},
   tick: function() {
     store.dispatch("updatePlayerPositoin", this.el.object3D.position)
