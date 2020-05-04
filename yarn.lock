@@ -365,6 +365,13 @@ acorn@^7.1.1:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.1.1.tgz#e35668de0b402f359de515c5482a1ab9f89a69bf"
   integrity sha512-add7dgA5ppRPxCFJoAGfMDi7PIBXq1RtGo7BhbLaxwrXPOmw8gq48Y9ozT01hUKy9byMjlR20EJhu5zlkErEkg==
 
+aframe-extras@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/aframe-extras/-/aframe-extras-6.1.0.tgz#75bff7d5e0f76ee424214500cd182c0baa410c9f"
+  integrity sha512-4UXIRN5juhPCC2DqHQ+pBaFViNEbpXN+TkR7GfF8eJlPbkygeDLlJsNN7cWGIRLRzw4JGGl0tcw8MHlqzH9jtg==
+  dependencies:
+    three-pathfinding "^0.7.0"
+
 aframe@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/aframe/-/aframe-1.0.4.tgz#1b659533db0f5cf9b002c22804278da8349a32d2"
@@ -4788,6 +4795,11 @@ three-buffer-vertex-data@dmarcos/three-buffer-vertex-data#69378fc58daf27d3b1d930
   resolved "https://codeload.github.com/dmarcos/three-buffer-vertex-data/tar.gz/69378fc58daf27d3b1d930df9f233473e4a4818c"
   dependencies:
     flatten-vertex-data "^1.0.0"
+
+three-pathfinding@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/three-pathfinding/-/three-pathfinding-0.7.0.tgz#bf64ec409bee6e7d8e19be96c7b40ebd7ef6f10d"
+  integrity sha512-UwWvzgio1UFe81n5jKHNzB4B+AG3wfZ54OKp7bTb1MHuC3cy6RTtr0dbbiPQQoqxzr+DRArR2DUwQSEknw5+nw==
 
 through2@^2.0.0:
   version "2.0.5"
