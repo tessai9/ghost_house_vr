@@ -1,4 +1,4 @@
-import store from "../store/Store.js"
+import { positionCheck } from "../utils/component-utils.js"
 
 // eslint-disable-next-line no-undef
 AFRAME.registerComponent("appearance",{
@@ -11,12 +11,7 @@ AFRAME.registerComponent("appearance",{
   },
   tick: function() {
     // プレイヤーが出現エリアに入ったらvisible = trueに
-    if (
-      store.getters.getPlayerPosition.x >= this.data.x_area[0] &&
-      store.getters.getPlayerPosition.x <= this.data.x_area[1] &&
-      store.getters.getPlayerPosition.z >= this.data.z_area[0] &&
-      store.getters.getPlayerPosition.z <= this.data.z_area[1]
-    ) {
+    if (positionCheck(this.data.x_area, this.data.z_area)) {
       this.el.setAttribute("visible", true)
       this.el.components.sound.playSound()
     } else {

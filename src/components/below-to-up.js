@@ -1,4 +1,4 @@
-import store from "../store/Store.js"
+import { positionCheck } from "../utils/component-utils.js"
 
 // eslint-disable-next-line no-undef
 AFRAME.registerComponent("below-to-up", {
@@ -11,16 +11,11 @@ AFRAME.registerComponent("below-to-up", {
   },
   tick: function() {
     if (
-      store.getters.getPlayerPosition.x >= this.data.x_area[0] &&
-      store.getters.getPlayerPosition.x <= this.data.x_area[1] &&
-      store.getters.getPlayerPosition.z >= this.data.z_area[0] &&
-      store.getters.getPlayerPosition.z <= this.data.z_area[1]
-    ) {
-      // 一度出たらそのまま
-      if(this.el.object3D.position.y < 2){
-        this.el.object3D.position.y += 0.1
-        this.el.components.sound.playSound()
-      }
+      positionCheck(this.data.x_area, this.data.z_area)
+      && this.el.object3D.position.y < 2
+    ){
+      this.el.object3D.position.y += 0.1
+      this.el.components.sound.playSound()
     }
   }
 })
