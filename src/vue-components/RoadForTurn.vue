@@ -1,39 +1,41 @@
 <template lang="html">
-  <a-entity>
+  <a-entity
+    :position="position"
+  >
     <!-- Ceiling -->
     <a-entity
       :geometry="ceiling_geometry"
       :material="ceiling_material"
-      :position="setCeilingPosition(index)"
+      position="0 5 0"
       rotation="90 0 0"
     ></a-entity>
     <!-- Ground -->
     <a-entity
       :geometry="ground_geometry"
       :material="ground_material"
-      :position="setGroundPosition(index)"
+      position="0 0 0"
       rotation="-90 0 0"
     ></a-entity>
-    <!-- Left Wall -->
+    <!-- Front Wall -->
     <a-entity
       :geometry="wall_geometry"
       :material="wall_material"
-      :position="setWallPosition(index, 'left')"
-      rotation="0 90 0"
+      position="0 2.5 -2.5"
+      rotation="0 0 0"
     ></a-entity>
-    <!-- Right Wall -->
+    <!-- Side Wall -->
     <a-entity
       :geometry="wall_geometry"
       :material="wall_material"
-      :position="setWallPosition(index, 'right')"
-      rotation="0 -90 0"
+      :position="side_wall_position"
+      :rotation="side_wall_rotation"
     ></a-entity>
   </a-entity>
 </template>
 
 <script>
 export default {
-  name: "StraightRoad",
+  name: "RoadForRightTurn",
   props: {
     ceiling_img_path: {
       type: String,
@@ -47,53 +49,69 @@ export default {
       type: String,
       required: true
     },
-    index: {
-      type: Number,
-      default: 0
+    // 曲がり角は基本的に複数並べることはないのでPosition指定
+    // 使い勝手悪かったら変える
+    position: {
+      type: Object,
+      required: true
+    },
+    direction: {
+      type: String,
+      default: "right"
     }
   },
   data() {
     return {
+      // information of ceiling
       ceiling_geometry: {
         primitive: "plane",
         width: 5,
-        height: 10,
+        height: 5,
       },
       ceiling_material: {
         src: this.ceiling_img_path
       },
+      // information of ground
       ground_geometry: {
         primitive: "plane",
         width: 5,
-        height: 10,
+        height: 5,
       },
       ground_material: {
         src: this.ground_img_path
       },
+      // information of wall
       wall_geometry: {
         primitive: "plane",
-        width: 10,
+        width: 5,
         height: 5,
       },
       wall_material: {
         src: this.wall_img_path
-      }
+      },
+      // side wall
+      side_wall_position: {},
+      side_wall_rotation: {},
     }
   },
-  methods: {
-    setCeilingPosition(index) {
-      const z_position = (index - 1) * this.ceiling_geometry.height * -1;
-      return { x: 0, y: 5, z: z_position }
-    },
-    setGroundPosition(index) {
-      const z_position = (index - 1) * this.ground_geometry.height * -1;
-      return { x: 0, y: 0, z: z_position }
-    },
-    setWallPosition(index, side) {
-      const z_position = (index - 1) * this.wall_geometry.width * -1;
-      return { x: side == "left" ? -2.5 : 2.5, y: 2.5, z: z_position }
+  mounted() {
+    console.log(this.direction)
+    switch(this.direction) {
+    case "right":
+      this.side_wall_position = { x: -2.5, y: 2.5, z: 0 }
+      this.side_wall_rotation = { x: 0, y: 90, z: 0 }
+      break
+    case "left":
+      this.side_wall_position = { x: 2.5, y: 2.5, z: 0 }
+      this.side_wall_rotation = { x: 0, y: -90, z: 0 }
+      break
+    default:
+      this.side_wall_position = { x: -2.5, y: 2.5, z: 0 }
+      this.side_wall_rotation = { x: 0, y: 90, z: 0 }
+      break
     }
-  }
+  },
+  methods: {},
 }
 </script>
 

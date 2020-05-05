@@ -1,17 +1,7 @@
 <template lang="html">
   <a-scene>
-    <a-assets>
-      <img id="ghost_woman" src="/assets/ghost_woman.png" />
-      <img id="ground_img" src="/assets/floor.png" />
-      <img id="wall_img" src="/assets/wall.jpg" />
-      <img id="ceiling_img" src="/assets/ceiling.jpg" />
-      <audio id="world_sound" src="/assets/sound/world_sound.mp3" preload="auto" />
-      <audio id="walk_sound" src="/assets/sound/walk_sound.mp3" preload="auto" />
-      <audio id="ghost_voice_1" src="/assets/sound/ghost_voice_1.mp3" preload="auto" />
-      <audio id="ghost_voice_2" src="/assets/sound/ghost_voice_2.mp3" preload="auto" />
-      <audio id="ghost_scream_1" src="/assets/sound/ghost_scream_1.mp3" preload="auto" />
-      <audio id="ghost_scream_2" src="/assets/sound/ghost_scream_2.mp3" preload="auto" />
-    </a-assets>
+    <!-- Asset Files -->
+    <Assets />
 
     <!-- Ghost Component -->
     <Ghost
@@ -25,10 +15,19 @@
       :aframe_component="ghost.aframe_component"
     />
     <!-- Map Ground Component -->
-    <StraightRoad
+    <RoadForStraight
       v-for="i in map_length"
       :key="`map-${i}`"
       :index="i"
+      direction="vertical"
+      ceiling_img_path="#ceiling_img"
+      ground_img_path="#ground_img"
+      wall_img_path="#wall_img"
+    />
+    <!-- Sample turn road to left -->
+    <RoadForTurn
+      :position="right_turn_position_sample"
+      direction="left"
       ceiling_img_path="#ceiling_img"
       ground_img_path="#ground_img"
       wall_img_path="#wall_img"
@@ -49,25 +48,30 @@
 </template>
 
 <script>
+import Assets from "./Assets.vue"
 import Ghost from "./Ghost.vue"
-import StraightRoad from "./StraightRoad.vue"
+import RoadForStraight from "./RoadForStraight.vue"
+import RoadForTurn from "./RoadForTurn.vue"
 import Player from "./Player.vue"
 import PlayerPosDisplay from "./PlayerPosDisplay.vue"
-import GhostList from "../GhostList.js"
+import GhostList from "./GhostList.js"
 
 export default {
   name: "AframeApp",
   data(){
     return {
-      map_length: 20,
-      ghost_list: GhostList.ghost_list
+      map_length: 10,
+      ghost_list: GhostList.ghost_list,
+      right_turn_position_sample: { x: 0, y: 0, z: -50 }
     }
   },
   mounted() {},
   methods: {},
   components: {
+    Assets,
     Ghost,
-    StraightRoad,
+    RoadForStraight,
+    RoadForTurn,
     Player,
     PlayerPosDisplay
   }
