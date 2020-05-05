@@ -7,7 +7,8 @@
         :position="position"
         app-oculus-controls
       >
-      <a-entity cursor="fuse: true; fuseTimeout: 50"
+      <a-entity
+        cursor="fuse: true; fuseTimeout: 50"
         position="0 0 -1"
         geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.011"
         material="color: white; shader: flat"
@@ -17,18 +18,11 @@
 </template>
 
 <script>
-import store from "../store/Store.js"
-
 export default {
   name: "Player",
   data() {
     return {
-      position: store.getters.getPlayerPosition
-    }
-  },
-  computed: {
-    playerPosition () {
-      return store.getters.getPlayerPosition
+      position: this.$store.getters.getPlayerPosition
     }
   },
   methods: {}

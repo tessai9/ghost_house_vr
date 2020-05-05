@@ -4,6 +4,6 @@ import store from "../store/Store.js"
 AFRAME.registerComponent("app-oculus-controls", {
   init: function() {},
   tick: function() {
-    store.dispatch("updatePlayerPositoin", this.el.object3D.position)
+    store.dispatch("updatePlayerPosition", this.el.object3D.position)
   }
 })

@@ -16,7 +16,7 @@ export default new Vuex.Store({
   },
 
   mutations: {
-    changePlayerPositoin(state, payload) {
+    changePlayerPosition(state, payload) {
       const x = payload.position.x
       const y = payload.position.y
       const z = payload.position.z
@@ -25,8 +25,8 @@ export default new Vuex.Store({
   },
 
   actions: {
-    updatePlayerPositoin({commit}, position){
-      commit("changePlayerPositoin", {position})
+    updatePlayerPosition({commit}, position){
+      commit("changePlayerPosition", {position})
     }
   }
 })

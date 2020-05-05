@@ -95,7 +95,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.direction)
     switch(this.direction) {
     case "right":
       this.side_wall_position = { x: -2.5, y: 2.5, z: 0 }

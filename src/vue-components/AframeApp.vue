@@ -73,7 +73,7 @@ export default {
     RoadForStraight,
     RoadForTurn,
     Player,
-    PlayerPosDisplay
+    PlayerPosDisplay,
   }
 }
 </script>

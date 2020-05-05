@@ -8,8 +8,6 @@
 </template>
 
 <script>
-// import store from "../store/Store"
-
 export default {
   name: "PlayerPosDisplay",
   computed: {
@@ -19,12 +17,16 @@ export default {
       const y = this.$store.getters.getPlayerPosition.y
       const z = this.$store.getters.getPlayerPosition.z
       const relPos = {x:-fixedPos.x+x, y:-fixedPos.y+y, z:-fixedPos.z+z}
+      // eslint-disable-next-line no-console
+      console.log(relPos)
       return relPos
     },
     playerPositionStr () {
       const posStr = "X: " + String(this.$store.getters.getPlayerPosition.x).substr(0, 4) +
                      ", Y: " + String(this.$store.getters.getPlayerPosition.y).substr(0, 4) +
                      ", Z: " + String(this.$store.getters.getPlayerPosition.z).substr(0, 4)
+      // eslint-disable-next-line no-console
+      console.log(posStr)
       return posStr
     }
   }
