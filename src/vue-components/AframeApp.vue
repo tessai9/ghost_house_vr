@@ -54,7 +54,7 @@ import RoadForStraight from "./RoadForStraight.vue"
 import RoadForTurn from "./RoadForTurn.vue"
 import Player from "./Player.vue"
 import PlayerPosDisplay from "./PlayerPosDisplay.vue"
-import GhostList from "./GhostList.js"
+import GhostList from "../GhostList.js"
 
 export default {
   name: "AframeApp",
