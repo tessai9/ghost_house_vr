@@ -1,3 +1,4 @@
+// Vue Components
 import Vue from "vue"
 import App from "./vue-components/App.vue"
 import store from "./store/Store.js"
@@ -10,6 +11,9 @@ Vue.config.ignoredElements = [
   "a-entity",
   "a-text",
 ]
+
+// Aframe Components
+import "./components/index.js"
 
 window.addEventListener("DOMContentLoaded", () => {
   new Vue({
