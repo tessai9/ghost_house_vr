@@ -3,7 +3,7 @@
       <a-camera
         id="camera"
         look-controls
-        wasd-controls="acceleration: 50"
+        wasd-controls="acceleration: 500"
         :position="position"
         app-oculus-controls
       >

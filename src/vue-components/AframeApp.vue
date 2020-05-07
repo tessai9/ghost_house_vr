@@ -14,6 +14,8 @@
       :sound_id="ghost.sound_id"
       :aframe_component="ghost.aframe_component"
     />
+    <!-- Sample Ghost Object -->
+    <a-entity gltf-model="url(/assets/obj/bleed/scene.gltf)" position="0 0 -40" scale=".3 .3 .3"></a-entity>
     <!-- Map Ground Component -->
     <RoadForStraight
       v-for="i in map_length"
