@@ -2,7 +2,7 @@
     <a-entity id="player">
       <a-camera
         id="camera"
-        look-controls
+        look-controls="pointerLockEnabled: true"
         wasd-controls="acceleration: 500"
         :position="position"
         app-oculus-controls
