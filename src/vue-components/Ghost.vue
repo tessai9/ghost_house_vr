@@ -3,6 +3,7 @@
     ref="entity"
     :geometry="geometry"
     :position="position"
+    :rotation="rotation"
     :material="material"
     :sound="sound"
   ></a-entity>
@@ -19,6 +20,12 @@ export default {
       type: Object,
       default: function() {
         return { x: 0, y: 0, z: 0 }
+      }
+    },
+    rotation: {
+      type: Object,
+      default: function() {
+        return { x: 0, y: 0, z:0 }
       }
     },
     size: {

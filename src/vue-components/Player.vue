@@ -1,11 +1,15 @@
 <template lang="html">
-    <a-entity id="player">
-      <a-camera
+    <a-entity
+      id="player"
+      movement-controls="speed: 0.3"
+      :position="position"
+      app-oculus-controls
+    >
+      <a-entity
         id="camera"
-        look-controls
-        wasd-controls="acceleration: 500"
-        :position="position"
-        app-oculus-controls
+        camera
+        look-controls="pointerLockEnabled: true"
+        position="0 1.6 0"
       >
       <a-entity
         cursor="fuse: true; fuseTimeout: 50"
