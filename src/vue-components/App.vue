@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import AframeApp from "./components/AframeApp.vue"
+import AframeApp from "./AframeApp.vue"
 
 export default {
   name: "app",

@@ -6,7 +6,7 @@
     <!-- Ghost Component -->
     <Ghost
       v-for="ghost in ghost_list"
-      :key="ghost.no"
+      :key="`ghost-${ghost.no}`"
       :img_path="ghost.image_id"
       :size="ghost.size"
       :position="ghost.position"
@@ -14,10 +14,12 @@
       :sound_id="ghost.sound_id"
       :aframe_component="ghost.aframe_component"
     />
+    <!-- Sample Ghost Object -->
+    <a-entity gltf-model="url(/assets/obj/bleed/scene.gltf)" position="0 0 -40" scale=".3 .3 .3"></a-entity>
     <!-- Map Ground Component -->
     <RoadForStraight
       v-for="i in map_length"
-      :key="i"
+      :key="`map-${i}`"
       :index="i"
       direction="vertical"
       ceiling_img_path="#ceiling_img"
@@ -48,13 +50,13 @@
 </template>
 
 <script>
-import Assets from "@/components/Assets.vue"
-import Ghost from "@/components/Ghost.vue"
-import RoadForStraight from "@/components/RoadForStraight.vue"
-import RoadForTurn from "@/components/RoadForTurn.vue"
-import Player from "@/components/Player.vue"
-import PlayerPosDisplay from "@/components/PlayerPosDisplay.vue"
-import GhostList from "@/GhostList.js"
+import Assets from "./Assets.vue"
+import Ghost from "./Ghost.vue"
+import RoadForStraight from "./RoadForStraight.vue"
+import RoadForTurn from "./RoadForTurn.vue"
+import Player from "./Player.vue"
+import PlayerPosDisplay from "./PlayerPosDisplay.vue"
+import GhostList from "../GhostList.js"
 
 export default {
   name: "AframeApp",
@@ -73,7 +75,7 @@ export default {
     RoadForStraight,
     RoadForTurn,
     Player,
-    PlayerPosDisplay
+    PlayerPosDisplay,
   }
 }
 </script>

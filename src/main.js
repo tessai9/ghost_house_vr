@@ -1,23 +1,24 @@
+// Vue Components
 import Vue from "vue"
-import App from "@/App.vue"
-import AframeComponentStore from "@/AframeComponentStore.js"
-import Aframe from "aframe"
-import Store from "@/store/Store.js"
+import App from "./vue-components/App.vue"
+import store from "./store/Store.js"
 
 Vue.config.productionTip = false
 Vue.config.ignoredElements = [
   "a-scene",
   "a-assets",
+  "a-asset-item",
   "a-camera",
   "a-entity",
+  "a-text",
 ]
 
-// event listenerの登録
-Object.keys(AframeComponentStore).forEach(function(component) {
-  Aframe.registerComponent(component, AframeComponentStore[component])
-})
+// Aframe Components
+import "./components/index.js"
 
-new Vue({
-  store: Store,
-  render: h => h(App),
-}).$mount("#app")
+window.addEventListener("DOMContentLoaded", () => {
+  new Vue({
+    store: store,
+    render: h => h(App),
+  }).$mount("#app")
+})

@@ -34,7 +34,7 @@ export default {
         z_area: [-20, -18.5]
       },
       sound_id: "#ghost_scream_2",
-      aframe_component: "down_to_up"
+      aframe_component: "below-to-up"
     }
   ]
 }
