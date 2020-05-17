@@ -30,7 +30,7 @@ export default {
       no: 3,
       image_id: "#ghost_woman",
       size: { width: 4, height: 6 },
-      position: { x: 23, y: 2, z: -25 },
+      position: { x: 23, y: -8, z: -25 },
       rotation: { x: 0, y: -90, z: 0 },
       event_area: {
         x_area: [19, 25],

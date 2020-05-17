@@ -5,15 +5,33 @@
       v-for="(map_array, row_index) in map_data"
       :position="rowPosition(row_index)"
     >
+      <!-- Ceiling -->
+      <a-entity
+        :key="column_index"
+        v-for="(isRoad, column_index) in map_array"
+        :position="ceilingColumnPosition(column_index)"
+        material="src: #ceiling_img;"
+        geometry="primitive: plane; width: 10; height: 10;"
+        rotation="90 0 0"
+      ></a-entity>
+      <!-- Wall box -->
       <a-entity
         :key="column_index"
         v-for="(isRoad, column_index) in map_array"
         v-if="!isRoad"
-        :position="columnPosition(column_index)"
+        :position="boxColumnPosition(column_index)"
         geometry="primitive: box;"
         material="src: #wall_img"
         wall-box
-        static-body
+      ></a-entity>
+      <!-- Ground -->
+      <a-entity
+        :key="column_index"
+        v-for="(isRoad, column_index) in map_array"
+        :position="groundColumnPositoin(column_index)"
+        material="src: #ground_img;"
+        geometry="primitive: plane; width: 10; height: 10;"
+        rotation="-90 0 0"
       ></a-entity>
     </a-entity>
   </a-entity>
@@ -35,10 +53,24 @@ export default {
         z: (WALL_INTERVAL * row * -1) + WALL_INTERVAL / 2
       }
     },
-    columnPosition(column) {
+    boxColumnPosition(column) {
       return {
         x: WALL_INTERVAL * column,
         y: 0,
+        z: 0
+      }
+    },
+    ceilingColumnPosition(column) {
+      return {
+        x: WALL_INTERVAL * column,
+        y: 5,
+        z: 0
+      }
+    },
+    groundColumnPositoin(column) {
+      return {
+        x: WALL_INTERVAL * column,
+        y: -5,
         z: 0
       }
     },

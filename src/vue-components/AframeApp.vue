@@ -16,7 +16,7 @@
       :aframe_component="ghost.aframe_component"
     />
     <!-- Sample Ghost Object -->
-    <a-entity gltf-model="url(/assets/obj/bleed/scene.gltf)" position="0 0 -40" scale=".3 .3 .3"></a-entity>
+    <a-entity gltf-model="url(/assets/obj/bleed/scene.gltf)" position="39 -5 -44" scale=".5 .5 .5"></a-entity>
     <!-- House Map -->
     <HouseMap :map_data="house_map" />
     <!-- light -->
