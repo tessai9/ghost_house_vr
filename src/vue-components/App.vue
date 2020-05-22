@@ -1,7 +1,5 @@
 <template>
-  <div id="app">
-    <AframeApp />
-  </div>
+  <AframeApp></AframeApp>
 </template>
 
 <script>

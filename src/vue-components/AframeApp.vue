@@ -1,5 +1,5 @@
 <template lang="html">
-  <a-scene>
+  <a-scene vr-mode-ui="enabled: true">
     <!-- Asset Files -->
     <Assets />
 
