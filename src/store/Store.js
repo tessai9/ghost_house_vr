@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     // player position information
-    player_position: {x: 0, y: 2, z: 1}
+    player_position: {x: 0, y: 0, z: 1}
   },
 
   getters: {

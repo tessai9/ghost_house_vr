@@ -10,30 +10,15 @@
       :img_path="ghost.image_id"
       :size="ghost.size"
       :position="ghost.position"
+      :rotation="ghost.rotation"
       :event_area="ghost.event_area"
       :sound_id="ghost.sound_id"
       :aframe_component="ghost.aframe_component"
     />
     <!-- Sample Ghost Object -->
-    <a-entity gltf-model="url(/assets/obj/bleed/scene.gltf)" position="0 0 -40" scale=".3 .3 .3"></a-entity>
-    <!-- Map Ground Component -->
-    <RoadForStraight
-      v-for="i in map_length"
-      :key="`map-${i}`"
-      :index="i"
-      direction="vertical"
-      ceiling_img_path="#ceiling_img"
-      ground_img_path="#ground_img"
-      wall_img_path="#wall_img"
-    />
-    <!-- Sample turn road to left -->
-    <RoadForTurn
-      :position="right_turn_position_sample"
-      direction="left"
-      ceiling_img_path="#ceiling_img"
-      ground_img_path="#ground_img"
-      wall_img_path="#wall_img"
-    />
+    <a-entity gltf-model="url(/assets/obj/bleed/scene.gltf)" position="39 -5 -44" scale=".5 .5 .5"></a-entity>
+    <!-- House Map -->
+    <HouseMap :map_data="house_map" />
     <!-- light -->
     <a-entity light="type: ambient; intensity: 0.2;"></a-entity>
     <!-- World sound -->
@@ -52,11 +37,11 @@
 <script>
 import Assets from "./Assets.vue"
 import Ghost from "./Ghost.vue"
-import RoadForStraight from "./RoadForStraight.vue"
-import RoadForTurn from "./RoadForTurn.vue"
+import HouseMap from "./HouseMap.vue"
 import Player from "./Player.vue"
 import PlayerPosDisplay from "./PlayerPosDisplay.vue"
 import GhostList from "../GhostList.js"
+import { HOUSE_MAP } from "../HouseMap.js"
 
 export default {
   name: "AframeApp",
@@ -64,7 +49,8 @@ export default {
     return {
       map_length: 10,
       ghost_list: GhostList.ghost_list,
-      right_turn_position_sample: { x: 0, y: 0, z: -50 }
+      right_turn_position_sample: { x: 0, y: 0, z: -50 },
+      house_map: HOUSE_MAP,
     }
   },
   mounted() {},
@@ -72,10 +58,9 @@ export default {
   components: {
     Assets,
     Ghost,
-    RoadForStraight,
-    RoadForTurn,
     Player,
     PlayerPosDisplay,
+    HouseMap
   }
 }
 </script>

@@ -7,15 +7,18 @@ AFRAME.registerComponent("below-to-up", {
     z_area: { type: "array" }
   },
   init: function() {
-    this.el.object3D.position.y = -5;
+    const ghostGeometry = this.el.getAttribute("geometry")
+    this.el.setAttribute("visible", false)
   },
   tick: function() {
+    const ghostGeometry = this.el.getAttribute("geometry")
     if (
       positionCheck(this.data.x_area, this.data.z_area)
-      && this.el.object3D.position.y < 2
+      && this.el.object3D.position.y < 0
     ){
-      this.el.object3D.position.y += 0.1
+      this.el.object3D.position.y += 0.5
       this.el.components.sound.playSound()
+      this.el.setAttribute("visible", true)
     }
   }
 })
