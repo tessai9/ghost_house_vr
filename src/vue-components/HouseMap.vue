@@ -23,6 +23,7 @@
         geometry="primitive: box;"
         material="src: #wall_img"
         wall-box
+        class="wall"
       ></a-entity>
       <!-- Ground -->
       <a-entity
