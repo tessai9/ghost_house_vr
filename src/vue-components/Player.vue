@@ -1,23 +1,15 @@
 <template lang="html">
+  <a-entity>
     <a-entity
-      id="player"
-      movement-controls="speed: 0.3"
-      :position="position"
-      app-oculus-controls
+      id="camera"
+      camera
+      position="0 1.0 0"
+      wasd-controls="acceleration: 500"
+      look-controls="pointerLockEnabled: true"
+      save-store-player-position
+      wall-collidable="id: player"
     >
-      <a-entity
-        id="camera"
-        camera
-        look-controls="pointerLockEnabled: true"
-        position="0 1.6 0"
-      >
-      <a-entity
-        cursor="fuse: true; fuseTimeout: 50"
-        position="0 0 -1"
-        geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.011"
-        material="color: white; shader: flat"
-      ></a-entity>
-    </a-camera>
+    </a-entity>
   </a-entity>
 </template>
 
@@ -29,7 +21,11 @@ export default {
       position: this.$store.getters.getPlayerPosition
     }
   },
-  methods: {}
+  methods: {
+    getPosition : function() {
+      return this.$store.getters.getPlayerPosition
+    }
+  }
 }
 </script>
 

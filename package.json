@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "webpack --mode=production",
-    "serve": "webpack-dev-server",
+    "serve": "webpack-dev-server --open",
     "serve:vr": "webpack-dev-server --host 0.0.0.0 --https",
     "lint": "eslint -c package.json src"
   },
