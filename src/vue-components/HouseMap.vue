@@ -7,7 +7,7 @@
     >
       <!-- Ceiling -->
       <a-entity
-        :key="column_index"
+        :key="`ceiling-${column_index}`"
         v-for="(isRoad, column_index) in map_array"
         :position="ceilingColumnPosition(column_index)"
         material="src: #ceiling_img;"
@@ -16,7 +16,7 @@
       ></a-entity>
       <!-- Wall box -->
       <a-entity
-        :key="column_index"
+        :key="`wall-${column_index}`"
         v-for="(isRoad, column_index) in map_array"
         v-if="!isRoad"
         :position="boxColumnPosition(column_index)"
@@ -27,7 +27,7 @@
       ></a-entity>
       <!-- Ground -->
       <a-entity
-        :key="column_index"
+        :key="`ground-${column_index}`"
         v-for="(isRoad, column_index) in map_array"
         :position="groundColumnPositoin(column_index)"
         material="src: #ground_img;"
