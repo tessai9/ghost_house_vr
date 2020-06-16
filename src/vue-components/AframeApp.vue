@@ -2,6 +2,19 @@
   <a-scene vr-mode-ui="enabled: true">
     <!-- Asset Files -->
     <Assets />
+    <!-- Title -->
+    <a-entity
+      v-if="is_vr_mode"
+      id="start_button"
+      geometry="primitive: plane; width: 2; height: 1;"
+      material="src: #title_back_img;"
+      position="0 0 -5"
+    >
+      <a-entity
+        text="value: Start; align: center; color: #a00e24;"
+        scale="10 10 1"
+      ></a-entity>
+    </a-entity>
 
     <!-- Ghost Component -->
     <Ghost
@@ -42,6 +55,7 @@ import Player from "./Player.vue"
 import PlayerPosDisplay from "./PlayerPosDisplay.vue"
 import GhostList from "../GhostList.js"
 import { HOUSE_MAP } from "../HouseMap.js"
+import { isVrMode } from "../utils/device-utils.js"
 
 export default {
   name: "AframeApp",
@@ -51,16 +65,20 @@ export default {
       ghost_list: GhostList.ghost_list,
       right_turn_position_sample: { x: 0, y: 0, z: -50 },
       house_map: HOUSE_MAP,
+      is_vr_mode: true,
     }
   },
-  mounted() {},
+  mounted() {
+    // VRゴーグルで起動しているかどうか
+    this.is_vr_mode = isVrMode()
+  },
   methods: {},
   components: {
     Assets,
     Ghost,
     Player,
     PlayerPosDisplay,
-    HouseMap
+    HouseMap,
   }
 }
 </script>

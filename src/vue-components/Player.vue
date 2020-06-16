@@ -6,7 +6,7 @@
       position="0 1.0 0"
       wasd-controls="acceleration: 50"
       look-controls="pointerLockEnabled: true"
-      save-store-player-position
+      player
       wall-collidable="id: player"
     >
     </a-entity>
@@ -21,6 +21,7 @@ export default {
       position: this.$store.getters.getPlayerPosition
     }
   },
+  mounted() {},
   methods: {
     getPosition : function() {
       return this.$store.getters.getPlayerPosition
