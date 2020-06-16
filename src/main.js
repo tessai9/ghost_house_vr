@@ -21,6 +21,6 @@ import "./components/index.js"
 window.addEventListener("DOMContentLoaded", () => {
   new Vue({
     store: store,
-    render: h => h( isVrMode() ? App : StartPage),
+    render: h => h(App),
   }).$mount("#app");
 })
