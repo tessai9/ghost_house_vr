@@ -3,7 +3,6 @@ import Vue from "vue"
 import App from "./vue-components/App.vue"
 import StartPage from "./vue-components/StartPage.vue"
 import store from "./store/Store.js"
-import { isVrMode } from "./utils/device-utils.js"
 
 Vue.config.productionTip = false
 Vue.config.ignoredElements = [

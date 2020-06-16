@@ -19,7 +19,6 @@ export default {
   },
   computed: {
     currentPage() {
-      console.log(this.$store.state.current_page)
       return this.$store.state.current_page
     }
   },

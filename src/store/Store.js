@@ -1,5 +1,6 @@
 import Vue from "vue"
 import Vuex from "vuex"
+import { isVrMode } from "../utils/device-utils.js"
 import { PAGE_NAME_LIST } from "../utils/page-name-list.js"
 
 Vue.use(Vuex)
@@ -9,7 +10,7 @@ export default new Vuex.Store({
     // player position information
     player_position: {x: 0, y: 0, z: 1},
     // page status (Start Page, Ghost Housem, End Page)
-    current_page: PAGE_NAME_LIST.START,
+    current_page: isVrMode() ? PAGE_NAME_LIST.APP : PAGE_NAME_LIST.START,
   },
 
   getters: {
