@@ -9,6 +9,7 @@ AFRAME.registerComponent("below-to-up", {
   init: function() {
     const ghostGeometry = this.el.getAttribute("geometry")
     this.el.setAttribute("visible", false)
+    this.soundPlayFlag = false
   },
   tick: function() {
     const ghostGeometry = this.el.getAttribute("geometry")
@@ -17,7 +18,10 @@ AFRAME.registerComponent("below-to-up", {
       && this.el.object3D.position.y < 0
     ){
       this.el.object3D.position.y += 0.5
-      this.el.components.sound.playSound()
+      if(!this.soundPlayFlag){
+        this.el.components.sound.playSound()
+        this.soundPlayFlag = true
+      }
       this.el.setAttribute("visible", true)
     }
   }

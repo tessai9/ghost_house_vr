@@ -8,14 +8,19 @@ AFRAME.registerComponent("appearance",{
   },
   init: function() {
     this.el.setAttribute("visible", false)
+    this.soundPlayFlag = false
   },
   tick: function() {
     // プレイヤーが出現エリアに入ったらvisible = trueに
     if (positionCheck(this.data.x_area, this.data.z_area)) {
       this.el.setAttribute("visible", true)
-      this.el.components.sound.playSound()
+      if(!this.soundPlayFlag){
+        this.el.components.sound.playSound()
+        this.soundPlayFlag = true
+      }
     } else {
       this.el.setAttribute("visible", false)
+      this.soundPlayFlag = false
     }
   },
 })
