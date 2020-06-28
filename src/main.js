@@ -1,6 +1,7 @@
 // Vue Components
 import Vue from "vue"
 import App from "./vue-components/App.vue"
+import StartPage from "./vue-components/StartPage.vue"
 import store from "./store/Store.js"
 
 Vue.config.productionTip = false
@@ -20,5 +21,5 @@ window.addEventListener("DOMContentLoaded", () => {
   new Vue({
     store: store,
     render: h => h(App),
-  }).$mount("#app")
+  }).$mount("#app");
 })

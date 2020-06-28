@@ -4,6 +4,7 @@
     <img id="ground_img" src="/assets/floor.png" />
     <img id="wall_img" src="/assets/wall.jpg" />
     <img id="ceiling_img" src="/assets/ceiling.jpg" />
+    <img id="title_back_img" src="/assets/title_back.png">
     <audio id="world_sound" src="/assets/sound/world_sound.mp3" preload="auto" />
     <audio id="walk_sound" src="/assets/sound/walk_sound.mp3" preload="auto" />
     <audio id="ghost_voice_1" src="/assets/sound/ghost_voice_1.mp3" preload="auto" />
