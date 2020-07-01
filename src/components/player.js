@@ -3,21 +3,53 @@ import store from "../store/Store.js"
 const utility = AFRAME.utils
 
 const HAND_RAYCASTER_PARAMETER = {
+  objects: "#start_button",
   showLine: true,
   far: 5
 }
+
+const HAND_MODEL_PATH = "/assets/obj/hands/leftHandLow.glb"
 
 // eslint-disable-next-line no-undef
 AFRAME.registerComponent("player", {
   init: function() {
     // VRヘッドセットであれば、両手Entityを追加
     if(utility.device.checkHeadsetConnected()){
+      // Start Buttonに接触しているかどうか
+      this.startButtonIntersected = false
       const leftHandEntity = document.createElement("a-entity")
       const rightHandEntity = document.createElement("a-entity")
+
+      // 左手の挙動
       leftHandEntity.setAttribute("hand-controls", {"hand": "left"})
       leftHandEntity.setAttribute("raycaster", HAND_RAYCASTER_PARAMETER)
+      leftHandEntity.setAttribute("gltf-model", HAND_MODEL_PATH)
+      leftHandEntity.addEventListener("raycaster-intersection", () => {
+        this.startButtonIntersected = true
+      })
+      leftHandEntity.addEventListener("raycaster-intersection-cleared", () => {
+        this.startButtonIntersected = false
+      })
+      leftHandEntity.addEventListener("gripdown", () => {
+        if(this.startButtonIntersected) {
+          store.dispatch("updatePlayerMovableStatus", true)
+        }
+      })
+      // 右手の挙動
       rightHandEntity.setAttribute("hand-controls", {"hand": "right"})
       rightHandEntity.setAttribute("raycaster", HAND_RAYCASTER_PARAMETER)
+      rightHandEntity.setAttribute("gltf-model", HAND_MODEL_PATH)
+      rightHandEntity.addEventListener("raycaster-intersection", () => {
+        this.startButtonIntersected = true
+      })
+      rightHandEntity.addEventListener("raycaster-intersection-cleared", () => {
+        this.startButtonIntersected = false
+      })
+      rightHandEntity.addEventListener("gripdown", () => {
+        if(this.startButtonIntersected) {
+          store.dispatch("updatePlayerMovableStatus", true)
+        }
+      })
       this.el.appendChild(leftHandEntity)
       this.el.appendChild(rightHandEntity)
     }

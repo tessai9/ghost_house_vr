@@ -1,12 +1,13 @@
 <template lang="html">
-  <a-entity>
+  <a-entity
+    :movement-controls="playerMovementControls"
+    player
+  >
     <a-entity
       id="camera"
       camera
       position="0 1.0 0"
-      wasd-controls="acceleration: 50"
       look-controls="pointerLockEnabled: true"
-      player
       wall-collidable="id: player"
     >
     </a-entity>
@@ -19,6 +20,14 @@ export default {
   data() {
     return {
       position: this.$store.getters.getPlayerPosition
+    }
+  },
+  computed: {
+    playerMovementControls() {
+      return {
+        enabled: this.$store.getters.getPlayerMovableStatus,
+        speed: 0.4,
+      }
     }
   },
   mounted() {},

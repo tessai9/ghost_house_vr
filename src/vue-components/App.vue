@@ -1,12 +1,8 @@
 <template>
-  <div class="">
-    <StartPage v-if="currentPage == page_list.START"></StartPage>
-    <AframeApp v-if="currentPage == page_list.APP"></AframeApp>
-  </div>
+  <AframeApp></AframeApp>
 </template>
 
 <script>
-import StartPage from "./StartPage.vue"
 import AframeApp from "./AframeApp.vue"
 import { PAGE_NAME_LIST } from "../utils/page-name-list.js"
 
@@ -24,7 +20,6 @@ export default {
   },
   mounted() {},
   components: {
-    StartPage,
     AframeApp,
   }
 }

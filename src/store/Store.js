@@ -9,13 +9,18 @@ export default new Vuex.Store({
   state: {
     // player position information
     player_position: {x: 0, y: 0, z: 1},
-    // page status (Start Page, Ghost Housem, End Page)
+    // page status (Start Page, Ghost House, End Page)
     current_page: isVrMode() ? PAGE_NAME_LIST.APP : PAGE_NAME_LIST.START,
+    // player movable flag
+    player_movable: false,
   },
 
   getters: {
     getPlayerPosition(state) {
       return state.player_position
+    },
+    getPlayerMovableStatus(state) {
+      return state.player_movable
     },
   },
 
@@ -28,6 +33,9 @@ export default new Vuex.Store({
     },
     swithCurrentPage(state, page_number) {
       state.current_page = page_number
+    },
+    switchPlayerMovableStatus(state, is_movable) {
+      state.player_movable = is_movable
     }
   },
 
@@ -37,6 +45,9 @@ export default new Vuex.Store({
     },
     updateCurrentPage({commit}, page) {
       commit("swithCurrentPage", page)
+    },
+    updatePlayerMovableStatus({commit}, is_movable) {
+      commit("switchPlayerMovableStatus", is_movable)
     }
   }
 })
