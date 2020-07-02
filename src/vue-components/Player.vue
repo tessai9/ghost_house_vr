@@ -1,6 +1,7 @@
 <template lang="html">
   <a-entity
     :movement-controls="playerMovementControls"
+    wall-collidable="id: player"
     player
   >
     <a-entity
@@ -8,7 +9,6 @@
       camera
       position="0 1.0 0"
       look-controls="pointerLockEnabled: true"
-      wall-collidable="id: player"
     >
     </a-entity>
   </a-entity>

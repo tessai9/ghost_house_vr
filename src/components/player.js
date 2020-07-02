@@ -17,6 +17,7 @@ AFRAME.registerComponent("player", {
     if(utility.device.checkHeadsetConnected()){
       // Start Buttonに接触しているかどうか
       this.startButtonIntersected = false
+      // 両手のEntityを作成する
       const leftHandEntity = document.createElement("a-entity")
       const rightHandEntity = document.createElement("a-entity")
 
@@ -31,6 +32,7 @@ AFRAME.registerComponent("player", {
         this.startButtonIntersected = false
       })
       leftHandEntity.addEventListener("gripdown", () => {
+        // Startボタンと交差している状態でコントローラのグリップを押すと動けるように
         if(this.startButtonIntersected) {
           store.dispatch("updatePlayerMovableStatus", true)
         }
@@ -52,10 +54,18 @@ AFRAME.registerComponent("player", {
       })
       this.el.appendChild(leftHandEntity)
       this.el.appendChild(rightHandEntity)
+    // PCやスマホでの動作であれば、画面中心にカーソルを表示する
+    }else {
+      // 理想：cursor attributeの追加とクリックイベントの追加する
+
+      // とりあえず画面クリックでスタート
+      window.addEventListener("click", function() {
+        store.dispatch("updatePlayerMovableStatus", true)
+      })
     }
   },
   tick: function() {
-    // Storeの更新
+    // Storeで保持しているPlayerの位置情報を更新
     store.dispatch("updatePlayerPosition", this.el.object3D.position)
   }
 })
