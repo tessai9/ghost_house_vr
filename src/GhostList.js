@@ -33,7 +33,7 @@ export default {
       position: { x: 23, y: -8, z: -25 },
       rotation: { x: 0, y: -90, z: 0 },
       event_area: {
-        x_area: [19, 25],
+        x_area: [16, 25],
         z_area: [-30, -20]
       },
       sound_id: "#ghost_scream_2",
