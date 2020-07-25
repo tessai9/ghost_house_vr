@@ -25,26 +25,15 @@
         wall-box
         class="wall"
       ></a-entity>
-      <!-- Ground Goal-->
-      <a-entity
-        :key="`goal-${column_index}`"
-        v-for="(isRoad, column_index) in map_array"
-        v-if="isRoad == 9"
-        :position="groundColumnPositoin(column_index)"
-        material="src: #ground_img;"
-        geometry="primitive: plane; width: 10; height: 10;"
-        rotation="-90 0 0"
-        :goal="goalArea(row_index, column_index)"
-      ></a-entity>
       <!-- Ground -->
       <a-entity
         :key="`ground-${column_index}`"
         v-for="(isRoad, column_index) in map_array"
-        v-if="isRoad != 9"
         :position="groundColumnPositoin(column_index)"
         material="src: #ground_img;"
         geometry="primitive: plane; width: 10; height: 10;"
         rotation="-90 0 0"
+        :goal="goalArea(row_index, column_index, isRoad)"
       ></a-entity>
     </a-entity>
   </a-entity>
@@ -87,16 +76,20 @@ export default {
         z: 0
       }
     },
-    goalArea(row, column) {
+    goalArea(row, column, isRoad) {
+      const xBaseAreaValue = WALL_INTERVAL * column + WALL_INTERVAL * -1.5
+      const zBaseAreaValue = WALL_INTERVAL * row * -1
+
       return {
         x_area: [
-                  WALL_INTERVAL * column + WALL_INTERVAL * -1.5, 
-                  WALL_INTERVAL * column + WALL_INTERVAL * -1.5 + 10
-                ],
+          xBaseAreaValue,
+          xBaseAreaValue + 10
+        ],
         z_area: [
-                  (WALL_INTERVAL * row * -1), 
-                  (WALL_INTERVAL * row * -1) + 10
-                ]
+           zBaseAreaValue,
+           zBaseAreaValue + 10
+        ],
+        isGoal: isRoad == 9
       }
     },
   }

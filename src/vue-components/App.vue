@@ -13,12 +13,6 @@ export default {
       page_list: PAGE_NAME_LIST,
     }
   },
-  computed: {
-    currentPage() {
-      return this.$store.state.current_page
-    }
-  },
-  mounted() {},
   components: {
     AframeApp,
   }

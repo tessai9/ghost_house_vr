@@ -1,5 +1,5 @@
 <template lang="html">
-  <a-scene background="color: black"> 
+  <a-scene background="color: black">
     <a-entity
       id="camera"
       camera
@@ -26,10 +26,7 @@
       font="mozillavr"
       color="yellow"
       scale="10 10 10"
-      :animation="`property: object3D.position.y;
-                   to: ${textEndPosition()};
-                   dur: 20000;
-      `"
+      :animation="endRollAnimationProperty"
     >
       <a-text
         v-for="(name, name_index) in end_roll.name"
@@ -38,15 +35,12 @@
         :position="textPosition()"
         font="mozillavr"
         scale="6 6 6"
-        :animation="`property: object3D.position.y;
-                     to: ${textEndPosition()};
-                     dur: 20000;
-        `"
+        :animation="animation_property"
       >
       </a-text>
     </a-text>
 
-    <a-text 
+    <a-text
       id="ty" value="Thank you for playing." align="center" position="0 -58 -4" color="white"
       font="mozillavr"
       scale="4 4 4"
@@ -54,7 +48,7 @@
     ></a-text>
 
     <a-entity
-      id="close" 
+      id="close"
       text="value: CLOSE; align: center; color: white; width: 4"
       geometry="primitive:plane; width: 2"
       position="-1.5 -60 -4"
@@ -63,10 +57,10 @@
       material="color: blue"
       selectable="action: close"
     ></a-entity>
-    <a-entity 
-      id="restart" 
+    <a-entity
+      id="restart"
       text="value: RESTART; align: center; color: white; width: 4"
-      position="1.5 -60 -4" 
+      position="1.5 -60 -4"
       geometry="primitive:plane; width: 2"
       class="endmenu"
       animation="property: object3D.position.y; to: 0; dur: 20000;"
@@ -89,6 +83,22 @@ export default {
     return {
       end_roll_text: END_ROLL_TEXT,
     }
+  },
+  computed: {
+    nameAnimationProperty() {
+      return {
+        property: object3D.position.y,
+        to: textPosition(),
+        dur: 20000
+      }
+    },
+    endRollAnimationProperty() {
+      return {
+        property: object3D.position.y,
+        to: textEndPosition(),
+        dur: 20000
+      }
+    },
   },
   methods: {
     startApp() {
