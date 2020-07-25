@@ -12,6 +12,9 @@
     <audio id="ghost_scream_1" src="/assets/sound/ghost_scream_1.mp3" preload="auto" />
     <audio id="ghost_scream_2" src="/assets/sound/ghost_scream_2.mp3" preload="auto" />
     <a-asset-item id="bleed_ghost" src="/assets/obj/bleed/scene.gltf"></a-asset-item>
+    <a-asset-item id="metal_table" src="/assets/obj/old_metal_table/scene.gltf"></a-asset-item>
+    <a-asset-item id="eyeball_obj" src="/assets/obj/eyeball/eyeball.obj"></a-asset-item>
+    <a-asset-item id="eyeball_mtl" src="/assets/obj/eyeball/eyeball.mtl"></a-asset-item>
   </a-assets>
 </template>
 
