@@ -30,6 +30,38 @@
     />
     <!-- Sample Ghost Object -->
     <a-entity gltf-model="url(/assets/obj/bleed/scene.gltf)" position="39 -5 -44" scale=".5 .5 .5"></a-entity>
+    <!-- Table Object -->
+    <a-entity
+      class="wall"
+      position="20 -3.5 -25"
+      geometry="height: 10; depth: 5; width: 3;"
+      material="opacity: 0;"
+    >
+      <a-entity
+        gltf-model="url(/assets/obj/old_metal_table/scene.gltf)"
+        scale="3 3 3"
+        rotation="0 180 0"
+      ></a-entity>
+    </a-entity>
+    <!-- Cabinet -->
+    <a-entity
+      class="wall"
+      position="3 0.6 -17"
+      geometry="depth: 0.7;"
+      material="opacity: 0;"
+    >
+      <a-entity
+        light="type: spot; intensity: 0.2; distance: 10;"
+        position="-4 0 -1"
+        rotation="0 -90 0"
+      ></a-entity>
+      <a-entity
+        gltf-model="url(/assets/obj/metal_cabinet/scene.gltf)"
+        scale="5 5 5"
+        rotation="0 -90 0"
+      >
+      </a-entity>
+    </a-entity>
     <!-- House Map -->
     <HouseMap :map_data="house_map" />
     <!-- light -->
