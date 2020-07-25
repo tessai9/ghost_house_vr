@@ -1,6 +1,7 @@
 // Ghost House Map Definition
 // 0 : Road
 // 1 : Wall
+// 9 : Goal
 
 export const HOUSE_MAP = [
   [0, 1, 0, 0, 0, 0, 0],
@@ -9,5 +10,5 @@ export const HOUSE_MAP = [
   [0, 1, 1, 1, 0, 1, 0],
   [0, 0, 0, 0, 0, 1, 0],
   [0, 0, 0, 1, 1, 1, 0],
-  [0, 0, 0, 1, 0, 0, 0],
+  [0, 0, 0, 9, 0, 0, 0],
 ]
