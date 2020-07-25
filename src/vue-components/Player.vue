@@ -4,7 +4,7 @@
       id="camera"
       camera
       position="0 1.0 0"
-      wasd-controls="acceleration: 50"
+      wasd-controls="acceleration: 500"
       look-controls="pointerLockEnabled: true"
       player
       wall-collidable="id: player"
