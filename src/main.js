@@ -1,7 +1,6 @@
 // Vue Components
 import Vue from "vue"
 import App from "./vue-components/App.vue"
-import StartPage from "./vue-components/StartPage.vue"
 import store from "./store/Store.js"
 
 Vue.config.productionTip = false
