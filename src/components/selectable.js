@@ -23,5 +23,4 @@ AFRAME.registerComponent("selectable", {
     let intersection = this.raycaster.components.raycaster.getIntersection(this.el)
     if (!intersection) { return }
   }
-}
-)
+})

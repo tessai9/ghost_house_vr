@@ -22,6 +22,9 @@ export default new Vuex.Store({
     getPlayerMovableStatus(state) {
       return state.player_movable
     },
+    getCurrentPage(state) {
+      return state.current_page
+    },
   },
 
   mutations: {

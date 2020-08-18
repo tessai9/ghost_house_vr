@@ -16,7 +16,6 @@ AFRAME.registerComponent("goal", {
   },
   tick: function() {
     if (positionCheck(this.data.x_area, this.data.z_area) && this.el.object3D.position.y < 0) {
-      console.log("ゴール!!")
       store.dispatch("updateCurrentPage", PAGE_NAME_LIST.END)
     }
   }
