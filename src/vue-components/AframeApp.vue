@@ -1,0 +1,35 @@
+<template lang="html">
+  <a-scene vr-mode-ui="enabled: true" background="color: black">
+    <!-- Asset Files -->
+    <Assets />
+
+    <!-- Ghost House -->
+    <GhostHouse v-if="!isGameEnd" />
+    <!-- EndPage -->
+    <EndPage v-else />
+  </a-scene>
+</template>
+
+<script>
+import Assets from "./Assets.vue"
+import GhostHouse from "./GhostHouse.vue"
+import EndPage from "./EndPage.vue"
+import { PAGE_NAME_LIST } from "../utils/page-name-list.js"
+
+export default {
+  name: "AframeApp",
+  computed: {
+    isGameEnd() {
+      return this.$store.getters.getCurrentPage == PAGE_NAME_LIST.END
+    }
+  },
+  components: {
+    Assets,
+    GhostHouse,
+    EndPage,
+  }
+}
+</script>
+
+<style lang="css" scoped>
+</style>
