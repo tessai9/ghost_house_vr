@@ -1,5 +1,6 @@
 import store from "../store/Store.js"
 
+// eslint-disable-next-line no-undef
 const utility = AFRAME.utils
 
 const HAND_RAYCASTER_PARAMETER = {

@@ -5,6 +5,7 @@ export const WALL_BOX_SIZE = {
   depth: 10
 }
 
+// eslint-disable-next-line no-undef
 AFRAME.registerComponent("wall-box", {
   init: function() {
     this.el.setAttribute("geometry", WALL_BOX_SIZE)

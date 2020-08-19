@@ -8,15 +8,14 @@ AFRAME.registerComponent("selectable", {
     this.el.setAttribute("animation__mouseleave", "property: scale; to: 1 1 1; startEvents: mouseleave; dur: 200")
     this.el.addEventListener("raycaster-intersected", evt => {
       this.raycaster = evt.detail.el
-            
-    });
-    this.el.addEventListener("raycaster-intersected-cleared", evt => {
+    })
+    this.el.addEventListener("raycaster-intersected-cleared", () => {
       this.raycaster = null
-    });
-    this.el.addEventListener("click", evt => {
+    })
+    this.el.addEventListener("click", () => {
       if(this.data.action == "restart"){ location.reload()}
       else if(this.data.action == "close"){ window.open("about:blank", "_self").close()}
-    });
+    })
   },
   tick: function() {
     if (!this.raycaster) { return }
