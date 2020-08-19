@@ -7,12 +7,10 @@ AFRAME.registerComponent("below-to-up", {
     z_area: { type: "array" }
   },
   init: function() {
-    const ghostGeometry = this.el.getAttribute("geometry")
     this.el.setAttribute("visible", false)
     this.soundPlayFlag = false
   },
   tick: function() {
-    const ghostGeometry = this.el.getAttribute("geometry")
     if (
       positionCheck(this.data.x_area, this.data.z_area)
       && this.el.object3D.position.y < 0

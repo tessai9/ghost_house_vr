@@ -1,5 +1,6 @@
 import "aframe"
 
+// eslint-disable-next-line no-undef
 const AframeUtils = AFRAME.utils
 
 // 実行環境の取得
