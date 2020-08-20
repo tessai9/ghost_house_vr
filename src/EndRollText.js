@@ -1,31 +1,28 @@
 export const END_ROLL_TEXT = [
   { 
-    title: "Staff",
+    title: "Planning",
     name: [
-      "dafdfivakefje",
-      "dfkeoanekni enie"
+      "Tetsunari Sumiyoshi",
     ]
   },
   {
-    title: "Graphic",
+    title: "Produce",
     name: [
-      "lsn ksjged,mo",
-      "bdf eokelfke oekf"
+      "Tetsunari Sumiyoshi",
     ]
   },
   {
 
-    title: "3D Object",
+    title: "Developers",
     name: [
-      "TTEOK EOK EO",
-      "DF EEOK OEK OKOE"
+      "Tetsunari Sumiyoshi",
+      "Yuta Sekikawa"
     ]
   },
   {
-    title: "Sound",
+    title: "Sounds",
     name: [
-      "f eokok Eokoke",
-      "eo'jfeo ef e"
+      "びたちー素材館 様",
     ]
   }
 ]

@@ -1,5 +1,6 @@
 <template lang="html">
   <a-entity id="end-page">
+    <!-- Player -->
     <a-entity
       id="camera"
       camera
@@ -19,33 +20,30 @@
       ></a-entity>
     </a-entity>
 
-    <a-text
-      v-for="(end_roll, title_index) in end_roll_text"
-      :key="`end-roll-title-${title_index}`"
-      :value="end_roll.title"
-      :position="textPosition()"
-      font="mozillavr"
-      color="yellow"
-      scale="10 10 10"
-      :animation="`property: object3D.position.y;
-                   to: ${textEndPosition()};
-                   dur: 20000;
-      `"
+    <!-- Endroll Contents -->
+    <a-entity
+      id="endroll-text"
+      endroll
+      animation="property: object3D.position.y; to: 80; dur: 20000;"
     >
       <a-text
-        v-for="(name, name_index) in end_roll.name"
-        :key="`end-roll-name-${name_index}-${title_index}`"
-        :value="name"
-        :position="textPosition()"
+        v-for="(content, content_index) in end_roll_text"
+        :key="`title-${content_index}`"
+        :value="content.title"
+        :position="titlePosition(content_index)"
         font="mozillavr"
-        scale="6 6 6"
-        :animation="`property: object3D.position.y;
-                     to: ${textEndPosition()};
-                     dur: 20000;
-        `"
+        color="yellow"
+        scale="10 10 10"
       >
+        <a-text
+          v-for="(name, name_index) in content.name"
+          :key="`name-${name_index}`"
+          :value="name"
+          :position="namePosition(name_index)"
+          scale="0.5 0.5 0.5"
+        ></a-text>
       </a-text>
-    </a-text>
+    </a-entity>
 
     <a-text 
       id="ty" value="Thank you for playing." align="center" position="0 -58 -4" color="white"
@@ -81,7 +79,8 @@
 import { PAGE_NAME_LIST } from "../utils/page-name-list.js"
 import { END_ROLL_TEXT } from "../EndRollText.js"
 const TITLE_INTERVAL = 3
-let text_count = 0
+const NAME_INTERVAL = 0.25;
+
 export default {
   name: "EndPage",
   data() {
@@ -93,17 +92,23 @@ export default {
     startApp() {
       this.$store.dispatch("updateCurrentPage", PAGE_NAME_LIST.START)
     },
-    textPosition() {
-      text_count++
+    textEndPosition(index) {
+      return -1 * TITLE_INTERVAL * index + 2 + 80
+    },
+    titlePosition(index) {
       return {
         x: -4,
-        y: -1 * TITLE_INTERVAL * text_count + 2,
+        y: -1 * TITLE_INTERVAL * index + 2,
         z: -10
       }
     },
-    textEndPosition() {
-      return -1 * TITLE_INTERVAL * text_count + 2 + 80
-    }
+    namePosition(index) {
+      return {
+        x: 0.15,
+        y: index > 0 ? -1 * (NAME_INTERVAL * index + NAME_INTERVAL) : -1 * NAME_INTERVAL,
+        z: 0
+      }
+    },
   }
 }
 </script>
