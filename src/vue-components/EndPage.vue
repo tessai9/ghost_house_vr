@@ -30,7 +30,7 @@
         v-for="(content, content_index) in end_roll_text"
         :key="`title-${content_index}`"
         :value="content.title"
-        :position="titlePosition(content_index)"
+        :position="titlePosition(content_index, content.name.length)"
         font="mozillavr"
         color="yellow"
         scale="10 10 10"
@@ -38,7 +38,9 @@
         <a-text
           v-for="(name, name_index) in content.name"
           :key="`name-${name_index}`"
-          :value="name"
+          :value="name.text"
+          :font="name.is_multi_byte ? name.font : `mozillavr`"
+          :negate="!name.is_multi_byte"
           :position="namePosition(name_index)"
           scale="0.5 0.5 0.5"
         ></a-text>
@@ -78,14 +80,16 @@
 <script>
 import { PAGE_NAME_LIST } from "../utils/page-name-list.js"
 import { END_ROLL_TEXT } from "../EndRollText.js"
-const TITLE_INTERVAL = 3
-const NAME_INTERVAL = 0.25;
+const TITLE_INTERVAL = 5
+const NAME_INTERVAL = 0.25
+const TITLE_INTERVAL_BUFF = 3
 
 export default {
   name: "EndPage",
   data() {
     return {
       end_roll_text: END_ROLL_TEXT,
+      prevNameLength: 1
     }
   },
   methods: {
@@ -93,14 +97,18 @@ export default {
       this.$store.dispatch("updateCurrentPage", PAGE_NAME_LIST.START)
     },
     textEndPosition(index) {
-      return -1 * TITLE_INTERVAL * index + 2 + 80
+      return -1 * TITLE_INTERVAL * index + 80
     },
-    titlePosition(index) {
-      return {
+    titlePosition(index, nameLength) {
+      const titlePosition = {
         x: -4,
-        y: -1 * TITLE_INTERVAL * index + 2,
+        y: (-1 * TITLE_INTERVAL * index) + (-1 * TITLE_INTERVAL_BUFF * this.prevNameLength),
         z: -10
       }
+      console.log(this.prevNameLength)
+      this.prevNameLength = nameLength
+
+      return titlePosition
     },
     namePosition(index) {
       return {

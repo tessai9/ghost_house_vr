@@ -2,27 +2,43 @@ export const END_ROLL_TEXT = [
   { 
     title: "Planning",
     name: [
-      "Tetsunari Sumiyoshi",
+      {
+        text: "Tetsunari Sumiyoshi",
+        is_multi_byte: false
+      }
     ]
   },
   {
     title: "Produce",
     name: [
-      "Tetsunari Sumiyoshi",
+      {
+        text: "Tetsunari Sumiyoshi",
+        is_multi_byte: false
+      }
     ]
   },
   {
 
     title: "Developers",
     name: [
-      "Tetsunari Sumiyoshi",
-      "Yuta Sekikawa"
+      {
+        text: "Tetsunari Sumiyoshi",
+        is_multi_byte: false
+      },
+      {
+        text: "Yuta Sekikawa",
+        is_multi_byte: false
+      },
     ]
   },
   {
     title: "Sounds",
     name: [
-      "びたちー素材館 様",
+      {
+        text: "びたちー素材館 様",
+        is_multi_byte: true,
+        font: "/custom-font/bitachi-msdf/bitachi-msdf.json"
+      }
     ]
   }
 ]
