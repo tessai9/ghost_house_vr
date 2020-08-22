@@ -83,13 +83,13 @@ import { END_ROLL_TEXT } from "../EndRollText.js"
 const TITLE_INTERVAL = 5
 const NAME_INTERVAL = 0.25
 const TITLE_INTERVAL_BUFF = 3
+let prevNameLength = 1
 
 export default {
   name: "EndPage",
   data() {
     return {
       end_roll_text: END_ROLL_TEXT,
-      prevNameLength: 1
     }
   },
   methods: {
@@ -102,11 +102,10 @@ export default {
     titlePosition(index, nameLength) {
       const titlePosition = {
         x: -4,
-        y: (-1 * TITLE_INTERVAL * index) + (-1 * TITLE_INTERVAL_BUFF * this.prevNameLength),
+        y: (-1 * TITLE_INTERVAL * index) + (-1 * TITLE_INTERVAL_BUFF * prevNameLength),
         z: -10
       }
-      console.log(this.prevNameLength)
-      this.prevNameLength = nameLength
+      prevNameLength = nameLength
 
       return titlePosition
     },
