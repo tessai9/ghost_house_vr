@@ -1,3 +1,4 @@
+import "aframe"
 import store from "../store/Store.js"
 
 export function positionCheck(xArea, zArea) {
@@ -5,4 +6,12 @@ export function positionCheck(xArea, zArea) {
          store.getters.getPlayerPosition.x <= xArea[1] &&
          store.getters.getPlayerPosition.z >= zArea[0] &&
          store.getters.getPlayerPosition.z <= zArea[1]
+}
+
+export function setPlayerPosition(newPosition) {
+    const playerObject = document.getElementById("player").setAttribute("position", {
+        x: newPosition.x,
+        y: newPosition.y,
+        z: newPosition.z
+    })
 }

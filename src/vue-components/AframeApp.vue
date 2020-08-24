@@ -1,5 +1,5 @@
 <template lang="html">
-  <a-scene vr-mode-ui="enabled: true" background="color: black">
+  <a-scene vr-mode-ui="enabled: true" background="color: black" stats>
     <!-- Asset Files -->
     <Assets />
 
@@ -7,13 +7,19 @@
     <GhostHouse v-if="!isGameEnd" />
     <!-- EndPage -->
     <EndPage v-else />
-  </a-scene>
+
+    <!-- Player Component -->
+    <Player />
+    <PlayerPosDisplay />
+</a-scene>
 </template>
 
 <script>
 import Assets from "./Assets.vue"
 import GhostHouse from "./GhostHouse.vue"
 import EndPage from "./EndPage.vue"
+import Player from "./Player.vue"
+import PlayerPosDisplay from "./PlayerPosDisplay.vue"
 import { PAGE_NAME_LIST } from "../utils/page-name-list.js"
 
 export default {
@@ -27,6 +33,8 @@ export default {
     Assets,
     GhostHouse,
     EndPage,
+    Player,
+    PlayerPosDisplay,
   }
 }
 </script>

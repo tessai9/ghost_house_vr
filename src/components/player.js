@@ -3,10 +3,20 @@ import store from "../store/Store.js"
 // eslint-disable-next-line no-undef
 const utility = AFRAME.utils
 
-const HAND_RAYCASTER_PARAMETER = {
+const HAND_RAYCASTER_PARAMETER_FOR_START = {
   objects: "#start_button",
   showLine: true,
   far: 5
+}
+const HAND_RAYCASTER_PARAMETER_FOR_END = {
+  objects: ".endmenu",
+  showLine: true,
+  far: 100,
+  direction: {
+    x: 0,
+    y: 0,
+    z: -1
+  }
 }
 
 const HAND_MODEL_PATH = "/assets/obj/hands/leftHandLow.glb"
@@ -24,9 +34,11 @@ AFRAME.registerComponent("player", {
 
       // 左手の挙動
       leftHandEntity.setAttribute("hand-controls", {"hand": "left"})
-      leftHandEntity.setAttribute("raycaster", HAND_RAYCASTER_PARAMETER)
+      leftHandEntity.setAttribute("raycaster__start", HAND_RAYCASTER_PARAMETER_FOR_START)
+      leftHandEntity.setAttribute("raycaster__end", HAND_RAYCASTER_PARAMETER_FOR_END)
       leftHandEntity.setAttribute("gltf-model", HAND_MODEL_PATH)
-      leftHandEntity.addEventListener("raycaster-intersection", () => {
+      leftHandEntity.addEventListener("raycaster-intersection", (e) => {
+        console.log(e)
         this.startButtonIntersected = true
       })
       leftHandEntity.addEventListener("raycaster-intersection-cleared", () => {
@@ -40,7 +52,8 @@ AFRAME.registerComponent("player", {
       })
       // 右手の挙動
       rightHandEntity.setAttribute("hand-controls", {"hand": "right"})
-      rightHandEntity.setAttribute("raycaster", HAND_RAYCASTER_PARAMETER)
+      rightHandEntity.setAttribute("raycaster__start", HAND_RAYCASTER_PARAMETER_FOR_START)
+      leftHandEntity.setAttribute("raycaster__end", HAND_RAYCASTER_PARAMETER_FOR_END)
       rightHandEntity.setAttribute("gltf-model", HAND_MODEL_PATH)
       rightHandEntity.addEventListener("raycaster-intersection", () => {
         this.startButtonIntersected = true
@@ -57,8 +70,6 @@ AFRAME.registerComponent("player", {
       this.el.appendChild(rightHandEntity)
     // PCやスマホでの動作であれば、画面中心にカーソルを表示する
     }else {
-      // 理想：cursor attributeの追加とクリックイベントの追加する
-
       // とりあえず画面クリックでスタート
       window.addEventListener("click", function() {
         store.dispatch("updatePlayerMovableStatus", true)

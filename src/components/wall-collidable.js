@@ -17,7 +17,7 @@ AFRAME.registerComponent("wall-collidable", {
 
     const collisionState = this.collisionState
 
-    const el = this.el.parentElement
+    const el = this.el
     const colliderRayEntity = document.createElement("a-entity")
     colliderRayEntity.setAttribute("id", this.data.id)
 
@@ -38,10 +38,8 @@ AFRAME.registerComponent("wall-collidable", {
         const index = collisionState.indexOf(rayEntity.getAttribute("id"))
         collisionState.splice(index, 1)
       });
-      colliderRayEntity.appendChild(rayEntity)
+      el.appendChild(rayEntity)
     });
-
-    el.appendChild(colliderRayEntity)
   },
 
   tick: function () {
@@ -61,14 +59,6 @@ AFRAME.registerComponent("wall-collidable", {
       y: currPosition.y,
       z: currPosition.z
     }
-    /*
-        const currRotation = new THREE.Euler(
-            0,
-            -1 * THREE.Math.degToRad(this.el.getAttribute("rotation").y),
-            0,
-            "YXZ"
-        )*/
-
     // direction vector
     directionVector.subVectors(currPosition, prevPosition)
     //localDirectionVector.applyEuler(currRotation)

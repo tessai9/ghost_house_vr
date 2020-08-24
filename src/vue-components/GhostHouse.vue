@@ -7,6 +7,8 @@
       geometry="primitive: plane; width: 2; height: 1;"
       material="src: #title_back_img;"
       position="0 0 -5"
+      animation__mouseenter="property: scale; to: 1.5 1.5 1.5; startEvents: mouseenter; dur: 200"
+      animation__mouseleave="property: scale; to: 1 1 1; startEvents: mouseleave; dur: 200"
     >
       <a-entity
         text="value: Start; align: center; color: #a00e24;"
@@ -69,18 +71,12 @@
       sound="src: #world_sound; loop: true; volume: 3; autoplay: true;"
       ref="world-sound"
     ></a-entity>
-
-    <!-- Player Component -->
-    <Player />
-    <PlayerPosDisplay />
   </a-entity>
 </template>
 
 <script>
 import Ghost from "./Ghost.vue"
 import HouseMap from "./HouseMap.vue"
-import Player from "./Player.vue"
-import PlayerPosDisplay from "./PlayerPosDisplay.vue"
 import GhostList from "../GhostList.js"
 import { HOUSE_MAP } from "../HouseMap.js"
 
@@ -102,8 +98,6 @@ export default {
   components: {
     Ghost,
     HouseMap,
-    Player,
-    PlayerPosDisplay,
   }
 }
 </script>
