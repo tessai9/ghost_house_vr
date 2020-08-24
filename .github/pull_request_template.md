@@ -1,17 +1,17 @@
 # New Pull Request
 
-## PR type
+## 区分(Type)
 
-- [ ] bugfix
-- [ ] feature
+- [ ] Bugfix
+- [ ] Feature
 
-## 修正内容
+## 変更内容、変更によるメリット(Description)
 <!--
 どんな修正内容かを記載
 箇条書きでも文章でも可
 -->
 
-## 補足事項
+## 補足事項(Others)
 <!--
 修正した内容について補足説明があれば記載
 修正箇所で相談事などあればここに書く
