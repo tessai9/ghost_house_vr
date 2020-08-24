@@ -9,9 +9,9 @@ export function positionCheck(xArea, zArea) {
 }
 
 export function setPlayerPosition(newPosition) {
-    const playerObject = document.getElementById("player").setAttribute("position", {
-        x: newPosition.x,
-        y: newPosition.y,
-        z: newPosition.z
-    })
+  document.getElementById("player").setAttribute("position", {
+    x: newPosition.x,
+    y: newPosition.y,
+    z: newPosition.z
+  })
 }

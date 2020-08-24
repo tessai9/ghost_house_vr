@@ -7,8 +7,8 @@
       geometry="primitive: plane; width: 2; height: 1;"
       material="src: #title_back_img;"
       position="0 0 -5"
-      animation__mouseenter="property: scale; to: 1.5 1.5 1.5; startEvents: mouseenter; dur: 200"
-      animation__mouseleave="property: scale; to: 1 1 1; startEvents: mouseleave; dur: 200"
+      animation__raycaster-intersected="property: scale; to: 1.5 1.5 1.5; startEvents: raycaster-intersected; dur: 200"
+      animation__raycaster-intersected-cleared="property: scale; to: 1 1 1; startEvents: raycaster-intersected-cleared; dur: 200"
     >
       <a-entity
         text="value: Start; align: center; color: #a00e24;"
