@@ -1,49 +1,56 @@
 <template lang="html">
-  <a-entity id="end-page">
-    <!-- Endroll Contents -->
-    <a-entity
-      id="endroll-text"
-      endroll
-      animation="property: object3D.position.y; to: 80; dur: 20000;"
+<a-entity id="end-page">
+  <!-- Endroll Contents -->
+  <a-entity
+    id="endroll-text"
+    endroll
+    animation="property: object3D.position.y; to: 80; dur: 20000;"
     >
-      <a-text
-        v-for="(content, content_index) in end_roll_text"
-        :key="`title-${content_index}`"
-        :value="content.title"
-        :position="titlePosition(content_index, content.name.length)"
-        font="mozillavr"
-        color="yellow"
-        scale="10 10 10"
+    <a-text
+      v-for="(content, content_index) in end_roll_text"
+      :key="`title-${content_index}`"
+      :value="content.title"
+      :position="titlePosition(content_index, content.name.length)"
+      font="mozillavr"
+      color="yellow"
+      scale="10 10 10"
       >
-        <a-text
-          v-for="(name, name_index) in content.name"
-          :key="`name-${name_index}`"
-          :value="name.text"
-          :font="name.is_multi_byte ? name.font : `mozillavr`"
-          :negate="!name.is_multi_byte"
-          :position="namePosition(name_index)"
-          scale="0.5 0.5 0.5"
+      <a-text
+        v-for="(name, name_index) in content.name"
+        :key="`name-${name_index}`"
+        :value="name.text"
+        :font="name.is_multi_byte ? name.font : `mozillavr`"
+        :negate="!name.is_multi_byte"
+        :position="namePosition(name_index)"
+        scale="0.5 0.5 0.5"
         ></a-text>
-      </a-text>
-    </a-entity>
-
+    </a-text>
+  </a-entity>
+  
+  <!-- Thanks message & Restart Button -->
+  <a-entity
+    position="0 -38 -4"
+    animation="property: object3D.position.y; to: 2; dur: 20000;"
+    >
     <a-text 
-      id="ty" value="Thank you for playing." align="center" position="0 -38 -4" color="white"
+      id="ty"
+      value="Thank you for playing."
+      align="center"
+      color="white"
       font="mozillavr"
       scale="4 4 4"
-      animation="property: object3D.position.y; to: 2; dur: 20000;"
-    ></a-text>
-
+      ></a-text>
+    
     <a-entity 
       id="restart" 
       text="value: RESTART; align: center; color: white; width: 4"
-      position="0 -40 -4" 
+      position="0 -2 0" 
       geometry="primitive:plane; width: 2;"
       class="endmenu"
-      animation="property: object3D.position.y; to: 0; dur: 20000;"
       selectable="action: restart"
-    ></a-entity>
+      ></a-entity>
   </a-entity>
+</a-entity>
 </template>
 
 <script>

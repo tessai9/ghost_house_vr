@@ -1,5 +1,5 @@
 <template lang="html">
-  <a-scene vr-mode-ui="enabled: true" background="color: black" stats>
+  <a-scene vr-mode-ui="enabled: true" background="color: black">
     <!-- Asset Files -->
     <Assets />
 
@@ -11,7 +11,7 @@
     <!-- Player Component -->
     <Player />
     <PlayerPosDisplay />
-</a-scene>
+  </a-scene>
 </template>
 
 <script>

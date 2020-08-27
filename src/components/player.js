@@ -38,7 +38,6 @@ AFRAME.registerComponent("player", {
       leftHandEntity.setAttribute("raycaster__end", HAND_RAYCASTER_PARAMETER_FOR_END)
       leftHandEntity.setAttribute("gltf-model", HAND_MODEL_PATH)
       leftHandEntity.addEventListener("raycaster-intersection", (e) => {
-        console.log(e)
         this.startButtonIntersected = true
       })
       leftHandEntity.addEventListener("raycaster-intersection-cleared", () => {
