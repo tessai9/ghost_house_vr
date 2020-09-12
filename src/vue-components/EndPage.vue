@@ -39,15 +39,18 @@
       color="white"
       font="mozillavr"
       scale="4 4 4"
-      ></a-text>
-    
+    ></a-text>
     <a-entity 
-      id="restart" 
+      id="restart_button"
+      @click="restartGame"
       text="value: RESTART; align: center; color: white; width: 4"
       position="0 -2 0" 
       geometry="primitive:plane; width: 2;"
       class="endmenu"
-      selectable="action: restart"
+      animation__mouseenter="property: scale; to: 1.5 1.5 1.5; startEvents: mouseenter; dur: 200"
+      animation__mouseleave="property: scale; to: 1 1 1; startEvents: mouseleave; dur: 200"
+      animation__intersected="property: scale; to: 1.5 1.5 1.5; startEvents: raycaster-intersected; dur: 200"
+      animation__intersected-cleared="property: scale; to: 1 1 1; startEvents: raycaster-intersected-cleared; dur: 200"
       ></a-entity>
   </a-entity>
 </a-entity>
@@ -69,9 +72,6 @@ export default {
     }
   },
   methods: {
-    startApp() {
-      this.$store.dispatch("updateCurrentPage", PAGE_NAME_LIST.START)
-    },
     textEndPosition(index) {
       return -1 * TITLE_INTERVAL * index + 80
     },
@@ -92,6 +92,10 @@ export default {
         z: 0
       }
     },
+    restartGame() {
+      this.$store.dispatch("updatePlayerMovableStatus", false)
+      this.$store.dispatch("updateCurrentPage", PAGE_NAME_LIST.START)
+    }
   }
 }
 </script>

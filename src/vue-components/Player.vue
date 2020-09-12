@@ -23,12 +23,15 @@
         animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1;"
       ></a-entity>
     </a-entity>
+    <PlayerHand hand_side="left" />
+    <PlayerHand hand_side="right" />
   </a-entity>
 </template>
 
 <script>
 import { isVrMode } from "../utils/device-utils.js"
 import { PAGE_NAME_LIST } from "../utils/page-name-list.js"
+import PlayerHand from "./PlayerHand.vue"
 
 export default {
   name: "Player",
@@ -39,10 +42,21 @@ export default {
         speed: 0.2,
       }
     },
-      displayRingCursor() {
-          return this.$store.getters.getCurrentPage == PAGE_NAME_LIST.END && !isVrMode()
-      }
+    displayRingCursor() {
+      return this.$store.getters.getCurrentPage == PAGE_NAME_LIST.END && !isVrMode()
+    },
   },
+  data() {
+    return {
+      isVrMode: false,
+    }
+  },
+  mounted() {
+    this.isVrMode = isVrMode()
+  },
+  components: {
+    PlayerHand,
+  }
 }
 </script>
 
