@@ -1,80 +1,59 @@
 <template lang="html">
-  <a-entity id="end-page">
-    <!-- Player -->
-    <a-entity
-      id="camera"
-      camera
-      position="0 0 0"
-      wasd-controls="false"
-      look-controls="pointerLockEnabled: true"
+<a-entity id="end-page">
+  <!-- Endroll Contents -->
+  <a-entity
+    id="endroll-text"
+    endroll
+    animation="property: object3D.position.y; to: 80; dur: 20000;"
     >
-      <a-entity
-        cursor="fuse: true; fuseTimeout: 1500"
-        raycaster="far: 100; objects: .endmenu; showLine: true; direction: 0 0 -1"
-        position="0 0 -2"
-        geometry="primitive: ring; radiusInner: 0.04; radiusOuter: 0.06;"
-        material="color: #acacac; shader: flat; opacity: 0.8"
-        animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
-        animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
-        animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
-      ></a-entity>
-    </a-entity>
-
-    <!-- Endroll Contents -->
-    <a-entity
-      id="endroll-text"
-      endroll
-      animation="property: object3D.position.y; to: 80; dur: 20000;"
-    >
-      <a-text
-        v-for="(content, content_index) in end_roll_text"
-        :key="`title-${content_index}`"
-        :value="content.title"
-        :position="titlePosition(content_index, content.name.length)"
-        font="mozillavr"
-        color="yellow"
-        scale="10 10 10"
+    <a-text
+      v-for="(content, content_index) in end_roll_text"
+      :key="`title-${content_index}`"
+      :value="content.title"
+      :position="titlePosition(content_index, content.name.length)"
+      font="mozillavr"
+      color="yellow"
+      scale="10 10 10"
       >
-        <a-text
-          v-for="(name, name_index) in content.name"
-          :key="`name-${name_index}`"
-          :value="name.text"
-          :font="name.is_multi_byte ? name.font : `mozillavr`"
-          :negate="!name.is_multi_byte"
-          :position="namePosition(name_index)"
-          scale="0.5 0.5 0.5"
+      <a-text
+        v-for="(name, name_index) in content.name"
+        :key="`name-${name_index}`"
+        :value="name.text"
+        :font="name.is_multi_byte ? name.font : `mozillavr`"
+        :negate="!name.is_multi_byte"
+        :position="namePosition(name_index)"
+        scale="0.5 0.5 0.5"
         ></a-text>
-      </a-text>
-    </a-entity>
-
+    </a-text>
+  </a-entity>
+  
+  <!-- Thanks message & Restart Button -->
+  <a-entity
+    position="0 -38 -4"
+    animation="property: object3D.position.y; to: 2; dur: 20000;"
+    >
     <a-text 
-      id="ty" value="Thank you for playing." align="center" position="0 -58 -4" color="white"
+      id="ty"
+      value="Thank you for playing."
+      align="center"
+      color="white"
       font="mozillavr"
       scale="4 4 4"
-      animation="property: object3D.position.y; to: 2; dur: 20000;"
     ></a-text>
-
-    <a-entity
-      id="close" 
-      text="value: CLOSE; align: center; color: white; width: 4"
-      geometry="primitive:plane; width: 2"
-      position="-1.5 -60 -4"
-      class="endmenu"
-      animation="property: object3D.position.y; to: 0; dur: 20000;"
-      material="color: blue"
-      selectable="action: close"
-    ></a-entity>
     <a-entity 
-      id="restart" 
+      id="restart_button"
+      @click="restartGame"
       text="value: RESTART; align: center; color: white; width: 4"
-      position="1.5 -60 -4" 
-      geometry="primitive:plane; width: 2"
+      position="0 -2 0" 
+      geometry="primitive:plane; width: 2;"
       class="endmenu"
-      animation="property: object3D.position.y; to: 0; dur: 20000;"
-      material="color: red"
-      selectable="action: restart"
-    ></a-entity>
+      animation__mouseenter="property: scale; to: 1.5 1.5 1.5; startEvents: mouseenter; dur: 200"
+      animation__mouseleave="property: scale; to: 1 1 1; startEvents: mouseleave; dur: 200"
+      animation__intersected="property: scale; to: 1.5 1.5 1.5; startEvents: raycaster-intersected; dur: 200"
+      animation__intersected-cleared="property: scale; to: 1 1 1; startEvents: raycaster-intersected-cleared; dur: 200"
+      ></a-entity>
   </a-entity>
+</a-entity>
 </template>
 
 <script>
@@ -93,9 +72,6 @@ export default {
     }
   },
   methods: {
-    startApp() {
-      this.$store.dispatch("updateCurrentPage", PAGE_NAME_LIST.START)
-    },
     textEndPosition(index) {
       return -1 * TITLE_INTERVAL * index + 80
     },
@@ -116,6 +92,10 @@ export default {
         z: 0
       }
     },
+    restartGame() {
+      this.$store.dispatch("updatePlayerMovableStatus", false)
+      this.$store.dispatch("updateCurrentPage", PAGE_NAME_LIST.START)
+    }
   }
 }
 </script>

@@ -7,6 +7,10 @@
     <GhostHouse v-if="!isGameEnd" />
     <!-- EndPage -->
     <EndPage v-else />
+
+    <!-- Player Component -->
+    <Player />
+    <PlayerPosDisplay />
   </a-scene>
 </template>
 
@@ -14,6 +18,8 @@
 import Assets from "./Assets.vue"
 import GhostHouse from "./GhostHouse.vue"
 import EndPage from "./EndPage.vue"
+import Player from "./Player.vue"
+import PlayerPosDisplay from "./PlayerPosDisplay.vue"
 import { PAGE_NAME_LIST } from "../utils/page-name-list.js"
 
 export default {
@@ -27,6 +33,8 @@ export default {
     Assets,
     GhostHouse,
     EndPage,
+    Player,
+    PlayerPosDisplay,
   }
 }
 </script>

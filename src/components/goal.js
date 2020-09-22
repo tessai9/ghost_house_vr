@@ -1,4 +1,4 @@
-import { positionCheck } from "../utils/component-utils.js"
+import { positionCheck, setPlayerPosition } from "../utils/component-utils.js"
 import { PAGE_NAME_LIST } from "../utils/page-name-list.js"
 import store from "../store/Store.js"
 
@@ -15,8 +15,10 @@ AFRAME.registerComponent("goal", {
     }
   },
   tick: function() {
-    if (positionCheck(this.data.x_area, this.data.z_area) && this.el.object3D.position.y < 0) {
+    if (positionCheck(this.data.x_area, this.data.z_area)) {
+      store.dispatch("updatePlayerMovableStatus", false)
       store.dispatch("updateCurrentPage", PAGE_NAME_LIST.END)
+      setPlayerPosition( {x: 0, y: 0, z: 0} )
     }
   }
 })

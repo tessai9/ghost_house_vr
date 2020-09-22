@@ -7,6 +7,8 @@
       geometry="primitive: plane; width: 2; height: 1;"
       material="src: #title_back_img;"
       position="0 0 -5"
+      animation__raycaster-intersected="property: scale; to: 1.5 1.5 1.5; startEvents: raycaster-intersected; dur: 200"
+      animation__raycaster-intersected-cleared="property: scale; to: 1 1 1; startEvents: raycaster-intersected-cleared; dur: 200"
     >
       <a-entity
         text="value: Start; align: center; color: #a00e24;"
@@ -26,8 +28,10 @@
       :sound_id="ghost.sound_id"
       :aframe_component="ghost.aframe_component"
     />
+
     <!-- Sample Ghost Object -->
     <a-entity gltf-model="url(/assets/obj/bleed/scene.gltf)" position="39 -5 -44" scale=".5 .5 .5"></a-entity>
+
     <!-- Table Object -->
     <a-entity
       class="wall"
@@ -41,6 +45,7 @@
         rotation="0 180 0"
       ></a-entity>
     </a-entity>
+
     <!-- Cabinet -->
     <a-entity
       class="wall"
@@ -59,28 +64,18 @@
         rotation="0 -90 0"
       ></a-entity>
     </a-entity>
+
     <!-- House Map -->
     <HouseMap :map_data="house_map" />
+
     <!-- World Light -->
     <a-entity light="type: ambient; intensity: 0.2;"></a-entity>
-    <!-- World Sound -->
-    <a-entity
-      world-sound
-      sound="src: #world_sound; loop: true; volume: 3; autoplay: true;"
-      ref="world-sound"
-    ></a-entity>
-
-    <!-- Player Component -->
-    <Player />
-    <PlayerPosDisplay />
   </a-entity>
 </template>
 
 <script>
 import Ghost from "./Ghost.vue"
 import HouseMap from "./HouseMap.vue"
-import Player from "./Player.vue"
-import PlayerPosDisplay from "./PlayerPosDisplay.vue"
 import GhostList from "../GhostList.js"
 import { HOUSE_MAP } from "../HouseMap.js"
 
@@ -102,8 +97,6 @@ export default {
   components: {
     Ghost,
     HouseMap,
-    Player,
-    PlayerPosDisplay,
   }
 }
 </script>
