@@ -76,8 +76,8 @@
 <script>
 import Ghost from "./Ghost.vue"
 import HouseMap from "./HouseMap.vue"
-import GhostList from "../GhostList.js"
-import { HOUSE_MAP } from "../HouseMap.js"
+import GhostList from "../const/GhostList.js"
+import { HOUSE_MAP } from "../const/HouseMap.js"
 
 export default {
   name: "AframeApp",
