@@ -57,11 +57,12 @@
 </template>
 
 <script>
-import { PAGE_NAME_LIST } from "../utils/page-name-list.js"
+import { PAGE_NAME_LIST } from "../const/PageNameList.js"
 import { END_ROLL_TEXT } from "../const/EndRollText.js"
 const TITLE_INTERVAL = 5
 const NAME_INTERVAL = 0.25
 const TITLE_INTERVAL_BUFF = 3
+
 let prevNameLength = 1
 
 export default {

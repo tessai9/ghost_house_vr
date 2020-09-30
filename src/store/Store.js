@@ -1,7 +1,7 @@
 import Vue from "vue"
 import Vuex from "vuex"
 import { isVrMode } from "../utils/device-utils.js"
-import { PAGE_NAME_LIST } from "../utils/page-name-list.js"
+import { PAGE_NAME_LIST } from "../const/PageNameList.js"
 
 Vue.use(Vuex)
 

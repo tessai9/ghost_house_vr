@@ -1,5 +1,5 @@
 import { positionCheck, setPlayerPosition } from "../utils/component-utils.js"
-import { PAGE_NAME_LIST } from "../utils/page-name-list.js"
+import { PAGE_NAME_LIST } from "../const/PageNameList.js"
 import store from "../store/Store.js"
 
 // eslint-disable-next-line no-undef

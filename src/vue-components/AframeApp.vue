@@ -20,7 +20,7 @@ import GhostHouse from "./GhostHouse.vue"
 import EndPage from "./EndPage.vue"
 import Player from "./Player.vue"
 import PlayerPosDisplay from "./PlayerPosDisplay.vue"
-import { PAGE_NAME_LIST } from "../utils/page-name-list.js"
+import { PAGE_NAME_LIST } from "../const/PageNameList.js"
 
 export default {
   name: "AframeApp",
