@@ -1,4 +1,4 @@
-import { ObjectType } from "./ObjectType.js"
+import { OBJECT_TYPE } from "./ObjectType.js"
 
 export const STAGE_LIST = [
   {
@@ -14,7 +14,7 @@ export const STAGE_LIST = [
     ],
     ObjectList: [
       {
-        type: ObjectType.GHOST_2D,
+        type: OBJECT_TYPE.GHOST_2D,
         size: { width: 2, height: 3 },
         position: { x: 0, y: 2, z: -10 },
         rotation: { x: 0, y: 0, z: 0 },
@@ -27,7 +27,7 @@ export const STAGE_LIST = [
         aframe_component: ["appearance"],
       },
       {
-        type: ObjectType.GHOST_2D,
+        type: OBJECT_TYPE.GHOST_2D,
         size: { width: 2, height: 3 },
         position: { x: 0.5, y: 2, z: -15 },
         rotation: { x: 0, y: 0, z: 0 },
@@ -40,7 +40,7 @@ export const STAGE_LIST = [
         aframe_component: ["appearance"],
       },
       {
-        type: ObjectType.GHOST_2D,
+        type: OBJECT_TYPE.GHOST_2D,
         size: { width: 4, height: 6 },
         position: { x: 23, y: -8, z: -25 },
         rotation: { x: 0, y: -90, z: 0 },
@@ -51,6 +51,21 @@ export const STAGE_LIST = [
         image_id: "#ghost_woman",
         sound_id: "#ghost_scream_2",
         aframe_component: "below-to-up"
+      },
+      {
+        type: OBJECT_TYPE.GHOST_3D,
+        size: { height: 0.5, depth: 0.5, width: 0.5 },
+        position: { x: 39, y: -5, z: -44 },
+        src: "/assets/obj/bleed/scene.gltf",
+      },
+      {
+        type: OBJECT_TYPE.DECORATION,
+        position: { x: 20, y: -3.5, z: -25 },
+        rotation: { x: 0, y: 180, z: 0 },
+        scale: { height: 3, depth: 3, width: 3 },
+        src: "/assets/obj/old_metal_table/scene.gltf",
+        material: { opacity: 0 },
+        class: "wall",
       }
     ]
   },
