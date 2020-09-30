@@ -1,6 +1,6 @@
 import { ObjectType } from "./ObjectType.js"
 
-export const StageList = [
+export const STAGE_LIST = [
   {
     StageNo: 1,
     MapInfo: [
